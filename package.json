@@ -1,0 +1,19 @@
+{
+  "name": "mysass",
+  "version": "1.0.0",
+  "description": "My sass project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lopollodesign/mysass.git"
+  },
+  "author": "lopollo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lopollodesign/mysass/issues"
+  },
+  "homepage": "https://github.com/lopollodesign/mysass#readme"
+}
