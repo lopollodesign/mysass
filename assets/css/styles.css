@@ -1,6 +1,5 @@
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: blue; }
+  font-family: "Roboto", sans-serif; }
 
 .o-media, .o-media__main, .o-media__body {
   display: -webkit-box;
