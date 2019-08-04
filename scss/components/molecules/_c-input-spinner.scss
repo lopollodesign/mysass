@@ -1,0 +1,23 @@
+// ================================ ·
+// INPUTS SPINNER
+// ================================ ·
+
+.c-input-spinner {
+  position: relative;
+  @include bem-element( buttons ) {
+    @include position-absolute( null , 0 , 0 , 0 , null , null , null );
+    @include display-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+  }
+  @include bem-element( input ) {
+    width: 100%;
+    .c-button-group + & {
+      padding-right: 95px;
+    }
+    .c-button-group--sm + & {
+      padding-right: 70px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+// ====================================== ·
+// UTILITIES - FONT SIZE
+// Utilidades de tamaño de fuente
+// ====================================== ·
+
+@each $name, $size in $s-grid-font-sizes {
+  .u-font-size {
+    @include bem-modifier( #{$name} ){
+      font-size: $size;
+      line-height: $size * 1.25;
+    }
+  }
+}

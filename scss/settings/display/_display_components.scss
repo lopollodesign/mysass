@@ -1,0 +1,145 @@
+// ====================================== ·
+// DISPLAY - COMPONENTS
+// Aqui se deciden los tamaños de todos los componentes
+// Separado por Atomic design
+// ====================================== ·
+
+// ===================== ·
+// Atomos
+// ===================== ·
+
+// Buttons
+$c-buttons-sizes: (
+        'xs': (
+                min-width: 70px,
+                padding: 0 7px,
+                font-size: $font-size--small,
+                height: 20px,
+        ),
+        'sm': (
+                min-width: 100px,
+                padding: 0 10px,
+                font-size: $font-size--small,
+                height: 25px,
+        ),
+        'md': (
+                min-width: 150px,
+                padding: 0 12px,
+                font-size: $font-size,
+                height: 40px,
+        ),
+        'lg': (
+                min-width: 200px,
+                padding: 0 20px,
+                font-size: $font-size--middle,
+                height: 50px,
+        ),
+) !default;
+
+// Inputs
+$c-input-sizes: (
+        'sm': (
+                padding: 0 10px,
+                font-size: $font-size--small,
+                height: 25px,
+        ),
+        'md': (
+                padding: 0 12px,
+                font-size: $font-size,
+                height: 40px,
+        ),
+        'lg': (
+                padding: 0 20px,
+                font-size: $font-size--middle,
+                height: 50px,
+        ),
+) !default;
+
+// Tag
+$c-tag-sizes: (
+        'sm': (
+                padding: 0 7px,
+                font-size: $font-size--small,
+                height: 20px,
+        ),
+        'md': (
+                padding: 0 10px,
+                font-size: $font-size,
+                height: 25px,
+        ),
+        'lg': (
+                padding: 0 12px,
+                font-size: $font-size,
+                height: 30px,
+        ),
+) !default;
+
+// Route step
+$c-route-step-sizes: (
+        'default': 40px ,
+        'huge-mobile': 40px ,
+        'huge': 60px ,
+) !default;
+
+$c-route-step__point-sizes: (
+        'default': (
+                'size': 25px ,
+                'font-size': $font-size--small ,
+        ),
+        'lg': (
+                'size': 30px ,
+                'font-size': $font-size--big ,
+                'icon-font-size': $font-size--middle ,
+        ),
+        'huge': (
+                'size': 40px ,
+                'font-size': $font-size--big ,
+        ),
+) !default;
+
+// Point checkbox
+$c-point-checkbox__height: 14px !default;
+$c-point-checkbox__width: 35px !default;
+$c-point-checkbox__point-size: 20px !default;
+
+// ===================== ·
+// Moleculas
+// ===================== ·
+
+// ===================== ·
+// Organismos
+// ===================== ·
+
+// Destination-heading
+$c-destination-heading__height: 240px !default;
+$c-destination-heading__height--hasnt-image: 140px !default;
+
+// Route-date
+$c-route-date__size--mobile: 30px !default;
+$c-route-date__size: 40px !default;
+$c-route-date__arrow-size: 6 !default;
+
+// Route-step
+$c-route-step__size: 40px !default;
+$c-route-step__cercle-xs: 25px !default;
+$c-route-step__cercle-lg: 30px !default;
+
+// Travel route
+$c-travel-route__item-height: 50px !default;
+$c-travel-route__main-state-size: $c-travel-route__item-height !default;
+
+// Componentes de opciones de mapa
+$c-destinations-options__x: $c-travel-route__item-height !default;
+$c-map-options__dropdown__icons-size: 55px !default;
+
+// Microservice
+$c-microservice__min-height: 80px !default;
+$c-microservice__img-size: $c-microservice__min-height !default;
+$c-microservice__img-size--big: 200px !default;
+$c-microservice__img-size--mobile: 200px !default;
+$c-microservice__gap: $sizex !default;
+$c-microservice__img-col-width: $c-microservice__img-size + $c-microservice__gap !default;
+$c-microservice__map-height: 220px !default;
+
+// Microservice
+$c-fast-confirm__hero__height: 175px !default;

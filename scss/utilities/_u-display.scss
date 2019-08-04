@@ -1,0 +1,28 @@
+// ====================================== ·
+// UTILITIES - DISPLAY
+// Creacion de utilities para cambiar los displays en los diferentes breakpoints
+// ====================================== ·
+
+// Display habituales
+// ================ ·
+@each $breakpoint in map-keys($s-grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $s-grid-breakpoints);
+    @each $value in $displays {
+      @if $infix == null {
+        .u-display--#{$value} { display: $value !important;}
+      }
+      @else {
+        .u-display--#{$value}\@#{$infix} { display: $value !important;}
+      }
+    }
+  }
+}
+
+// Display para imprimir
+// ================ ·
+@media print {
+  @each $value in $displays {
+    .u-display--print-#{$value} { display: $value !important; }
+  }
+}

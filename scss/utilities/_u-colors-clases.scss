@@ -1,0 +1,22 @@
+// ====================================== ·
+// UTILITIES - COLORS CLASES
+// Creacion de todas las clases basicas de color
+// ====================================== ·
+
+// Colores corporativos
+// ===================== ·
+@each $name, $color in $all-colors{
+  @include basic-color-classes( $name , $color );
+}
+
+// Colores de ruta
+@each $name, $color in $travelling-route-colors {
+  @include lighten-color( $name , $color );
+  @include concret-border-colors( $name , $color);
+  @include alpha-backgrounds( $name , $color );
+}
+
+// Provider
+.clr--provider-message {
+  color: $provider-message-color;
+}

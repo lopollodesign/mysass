@@ -1,0 +1,64 @@
+// ================================ ·
+// MIXIN - COLORS
+// Herramienta para crear las clases de color
+// ================================ ·
+
+@function route-color--next($name, $map: $travelling-route-colors, $map-names: map-keys($map)) {
+  $n: index($map-names, $name);
+  @return if($n != null and $n > 1, $n - 1, length($map-names) );
+}
+
+// Mixin para crear las clases de los colores
+
+// PARA CLASES BASICAS
+@mixin basic-color-classes( $name , $color ){
+  $index: route-color--next($name);
+  .bg-clr--#{$name}, %bg-clr--#{$name}, .parent-clr--#{$name} .child__bg-clr, .parent-clr--#{$index} .child__bg-clr--next{
+    background-color: $color;
+  }
+  .clr--#{$name}, %clr--#{$name}, .parent-clr--#{$name} .child__clr{
+    color: $color;
+  }
+  .bdr-clr--#{$name}, %bdr-clr--#{$name}, .parent-clr--#{$name} .child__bdr-clr{
+    border-color: $color;
+  }
+  // Hovers, efecto boton
+  .bg-clr-hover--#{$name}, %bg-clr-hover--#{$name}, .parent-clr--#{$name} .child__bg-clr-hover{
+    background-color: $color;
+    &:hover{
+      background-color: mix( black, $color , 10%);
+    }
+  }
+}
+
+// PARA COLORES DE BACKGORUNDS TRANSPARENTES
+@mixin alpha-backgrounds( $name , $color ){
+  @each $nickname, $percentage in $alpha-percentages{
+    .bg-clr--#{$name}--alpha-#{$nickname}, .parent-clr--#{$name} .child__bg-clr--alpha-#{$nickname}{
+      background-color: rgba( $color , ($percentage / 100 ));
+    }
+  }
+}
+
+// PARA LOS BORDES CONCRETOS DEL COLOR
+@mixin concret-border-colors( $name , $color ){
+  @each $position in $positions-default{
+    .bdr-clr--#{$name}--#{$position} ,
+    .parent-clr--#{$name} .child__bdr-clr--#{$position}{
+      border-color: transparent;
+      border-#{$position}-color: $color;
+    }
+  }
+}
+
+// PARA LAS VERSIONES ACLARADAS DEL COLOR
+@mixin lighten-color( $name , $color ){
+  @each $nickname , $percentage in $lighten-percentages{
+    $index: route-color--next($name);
+    .bg-clr--#{$name}--white-#{$nickname},
+    .parent-clr--#{$name} .child__bg-clr--white-#{$nickname},
+    .parent-clr--#{$index} .child__bg-clr--next--white-#{$nickname}{
+      background-color: mix( white, $color , $percentage);
+    }
+  }
+}

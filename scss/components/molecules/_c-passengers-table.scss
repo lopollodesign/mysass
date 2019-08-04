@@ -1,0 +1,27 @@
+// ======================== ·
+// REFACTOR - PASSENGERS TABLE
+// pagina payment columna izq
+// ======================== ·
+
+.c-passengers-table{
+  padding: $sizex;
+  background-color: $lighter-gray;
+  margin-bottom: $sizex;
+  font-size: $font-size--small;
+  border-radius: $border-radius;
+  @if ( $s-bg--white != true ) {
+    background-color: #fff !important;
+  }
+  @include bem-element( list ) {
+    padding: $sizex;
+    background-color: $lightest-gray;
+    border-radius: $border-radius;
+    border:none;
+    &:not(:last-child){
+      margin-bottom: $sizesx;
+    }
+    @include bem-element( item ) {
+      margin: 0;
+    }
+  }
+}

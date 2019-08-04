@@ -1,0 +1,70 @@
+// ================================ ·
+// TRANSPORT DETAILS
+// Infomación completa de un transporte, los segmentos y los Stops
+// ================================ ·
+
+.c-transport-details {
+  @include bem-element( journey ) {
+    margin-top: $sizesx;
+  }
+  @include bem-element( step ) {
+    padding: $sizex $sizemd;
+    @include respond-to($mobile){
+      @include flexible-container( row , nowrap , flex-end , space-between );
+    }
+  }
+  @include bem-element( img-company ) {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width: map_get(map_get($o-meddia-sizes, sm), img-size);
+    height: map_get(map_get($o-meddia-sizes, sm), img-size);
+  }
+  @include bem-element( stop ) {
+    padding: $sizex $sizemd;
+    border: $s-bdr--lighter;
+    border-width: 1px 0;
+    background-color: white;
+    color: $middle-gray;
+    .ico-tc-one-scale{
+      font-size: $font-size--middle;
+      line-height: $font-size--small;
+    }
+    @include bem-element( main ) {
+      @include flexible-container( row , nowrap , center , space-between );
+      width: 100%;
+      @include respond-to-reverse($mobile){
+        @include flexible-container( column , nowrap , flex-start , flex-start);
+        & > *:not(:last-child) {
+          margin-bottom: $sizesx;
+        }
+      }
+    }
+  }
+  @include bem-element( type ) {
+    text-align: right;
+    @include respond-to-reverse($mobile) {
+      padding-left: map_get( map_get($o-meddia-sizes, sm) , gap ) + map_get( map_get($o-meddia-sizes, sm) , img-size );
+      @include t-separator( $line-style: dashed );
+      text-align: left;
+    }
+  }
+  .box-large & {
+    padding-left: 40px;
+    @include rtl {
+      padding-left: 0;
+      padding-right: 40px;
+    }
+    @include bem-element( step ) {
+      padding-left: $sizemd;
+      float: none;
+      width: initial;
+      .o-meddia__picture {
+        @include rectangle( auto , $required: true );
+      }
+      .img-company {
+        position: static !important;
+      }
+    }
+  }
+}

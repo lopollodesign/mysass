@@ -1,0 +1,147 @@
+// ================================ ·
+// ROUTE STEP
+// Linea + circulo de servicio o destino
+// Esta en el Travelroute y en el Timeline
+// ================================ ·
+
+.c-route-step{
+  @include flexible-container( column , nowrap , center , center );
+
+  i {
+    margin-bottom: -1px;
+  }
+  .travel-route__count &{
+    i{
+      font-size: $c-route-step__cercle-xs;
+    }
+  }
+
+  // Tamaños ----------
+  // Por defecto
+  min-width: map_get( $c-route-step-sizes , default );
+  width: map_get( $c-route-step-sizes , default );
+
+  // lg
+  // El "lg" sera solo a partir de movil
+  @include bem-modifier( huge ) {
+    min-width: map_get( $c-route-step-sizes , huge-mobile );
+    width: map_get( $c-route-step-sizes , huge-mobile );
+    @include respond-to( $mobile ){
+        min-width: map_get( $c-route-step-sizes , huge );
+      width: map_get( $c-route-step-sizes , huge );
+    }
+  }
+}
+
+.c-route-step__point{
+  // Caracteristicas genéricas
+  @include content-center();
+  font-weight: bold;
+  justify-self: center;
+  align-self: center;
+  margin: 3px 0;
+
+  // Tamaños ----------
+  // Por defecto
+  @include cercle( map_get( map_get( $c-route-step__point-sizes , default ) , 'size' ) );
+  min-height: map_get( map_get( $c-route-step__point-sizes , default ) , 'size' );
+  font-size: map_get( map_get( $c-route-step__point-sizes , default ) , 'font-size' );
+
+  // lg - grande
+  @include bem-modifier( lg ) {
+    @include cercle( map_get( map_get( $c-route-step__point-sizes , lg ) , 'size' ) );
+    min-height: map_get( map_get( $c-route-step__point-sizes , lg ) , 'size' );
+    font-size: map_get( map_get( $c-route-step__point-sizes , lg ) , 'font-size' );
+    i {
+      margin-bottom: 0;
+      font-size: map_get( map_get( $c-route-step__point-sizes , lg ) , 'icon-font-size' );
+    }
+  }
+
+  // Huge - gigante
+  @include bem-modifier( huge ) {
+    @include cercle( map_get( map_get( $c-route-step__point-sizes , huge ) , 'size' ) );
+    min-height: map_get( map_get( $c-route-step__point-sizes , huge ) , 'size' );
+    font-size: map_get( map_get( $c-route-step__point-sizes , huge ) , 'font-size' );
+
+    // En movil se hace "lg"
+    @include respond-to-reverse( $mobile ) {
+      @include cercle( map_get( map_get( $c-route-step__point-sizes , lg ) , 'size' ) );
+      min-height: map_get( map_get( $c-route-step__point-sizes , lg ) , 'size' );
+      font-size: map_get( map_get( $c-route-step__point-sizes , lg ) , 'font-size' );
+      i {
+        font-size: map_get( map_get( $c-route-step__point-sizes , lg ) , 'icon-font-size' );
+      }
+    }
+  }
+  // Cambios de estilo
+  &[class*='bg-']{
+    color: white;
+    text-shadow: 0 0 2px rgba( black , 0.2 );
+  }
+  &[class*="bdr"]{
+    border-style: solid;
+    border-width: 1px;
+  }
+}
+
+%c-route-step__line{
+  width: 2px;
+  position: relative;
+  height: 100%;
+  span{
+    border-radius: 10px;
+    @include position-absolute(1, null, null, null, 1px, 2px, 2px);
+    display: none;
+    .travel-route__travelling &{
+      background-color: white;
+    }
+  }
+  .c-route-step--dotted &{
+    width: 10px;
+    border-right: 3px dotted rgba(black, .15);
+    border-radius: 0;
+    margin-left: -6px;
+    .is-desactive & {
+      opacity: 0;
+    }
+  }
+}
+.c-route-step__line--top {
+  @include border-bottom-radius(4px);
+  @extend %c-route-step__line;
+  span {
+    bottom: 1px;
+  }
+  .travel-route__destination:first-child .travel-route__city &,
+  .travel-route__destination:first-child .travel-route__item:first-child &,
+  .travel-route__destination:first-child .travel-route__closed-tour__header &{
+    opacity: 0;
+  }
+  .travel-route__transport--origin-start & ,
+  .travel-route__parking--start & {
+    opacity: 0;
+  }
+  .travel-route__parking + .travel-route__transport--origin-start & {
+    opacity: 1;
+  }
+}
+.c-route-step__line--bottom{
+  @extend %c-route-step__line;
+  @include border-top-radius(4px);
+  span{
+    top: 1px;
+  }
+  .c-route-step--dotted &{
+    margin-bottom: 3px;
+  }
+  .travel-route__destination:last-child .travel-route__item:last-child &,
+  .travel-route__insurance:last-child &{
+    opacity: 0;
+  }
+  .travel-route__transport--origin-end & {
+    .travel-route:not(.travel-route--with-insurance) &{
+      opacity: 0;
+    }
+  }
+}

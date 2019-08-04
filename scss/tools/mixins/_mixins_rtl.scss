@@ -1,0 +1,17 @@
+// ================================ ·
+// MIXIN - RTL
+// Herramientas para crear los rtl de cada componente
+// ================================ ·
+
+@mixin rtl( $active: true ) {
+  @if ( $active == true ) {
+    body.rtl & {
+      @content;
+    }
+  }
+  @if ( $active != true ) {
+    body:not(.rtl) & {
+      @content;
+    }
+  }
+}

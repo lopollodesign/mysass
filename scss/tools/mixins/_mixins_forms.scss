@@ -1,0 +1,81 @@
+// ================================ ·
+// MIXIN - FORMS
+// Herramientas creacion de formas basicas
+// Ejemplo: circulos, rentangulos, cuadrados... etc etc
+// ================================ ·
+
+@mixin fixed-size(  $size , $property: 'width' ) {
+  #{$property}: $size;
+  min-#{$property}: $size;
+  max-#{$property}: $size;
+}
+
+@mixin rectangle( $w, $h: false , $required: false ) {
+  width: $w;
+  @if $h == false {
+    height: $w;
+  }
+  @else {
+    height: $h;
+  }
+  @if $required == true {
+    min-width: $w;
+    max-width: $w;
+    @if $h == false {
+      min-height: $w;
+      max-height: $w;
+    }
+    @else {
+      min-height: $h;
+      max-height: $h;
+    }
+  }
+}
+
+@mixin cercle( $w, $h: false ) {
+  width: $w;
+  border-radius: $w * 10;
+  @if $h == false {
+    height: $w;
+  }
+  @else {
+    height: $h;
+  }
+}
+
+@mixin position-absolute( $zi, $t, $r, $b, $l, $w: auto, $h: auto , $display: block , $position: absolute ){
+  @if $display == 'flex' {
+    @include display-flex;
+  }
+  @else if $display == 'inline-flex' {
+    @include display-inline-flex;
+  }
+  @else {
+    display: $display;
+  }
+  position: $position;
+  content: ' ';
+  z-index: $zi;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+  width: $w;
+  height: $h;
+}
+
+@mixin img-cover( $h ) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-height: $h;
+}
+
+@mixin img-overlaying( $p: relative ) {
+  position: $p;
+  &::after {
+    background-color: $s-image__overlaying-bg;
+    @include position-absolute( 0 , 0 , 0 , 0 , 0 , null , null );
+  }
+}

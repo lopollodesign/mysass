@@ -1,0 +1,121 @@
+// ================================ ·
+// TIMELINE
+// ================================ ·
+
+.c-timeline {
+  color: $darker-gray;
+  margin-bottom: $sizemd;
+  @include respond-to-reverse($mobile){
+    margin-left: -7px;
+    @include rtl {
+      margin-left: 0;
+      margin-right: -7px;
+    }
+  }
+  @include bem-element(service){
+    @include bem-modifier(add-transfer){
+      &:first-child {
+        @include respond-to-reverse($mobile){
+          .c-route-step__line--bottom {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+  @include bem-element(item){
+    @include display-flex;
+    @include flex-flow( row , nowrap );
+    .c-timeline__travelling &.c-timeline__service:not(:last-child){
+      .c-route-date{
+        border-bottom: 1px solid rgba(white, .3);
+      }
+    }
+    @include respond-to($mobile){
+      &.child__bg-clr {
+        background-color: white;
+      }
+    }
+    .c-route-step{
+      z-index: 2;
+    }
+  }
+  @include bem-element( content ) {
+    flex-basis: 100%;
+    padding: $sizesx 0;
+  }
+  @include bem-element( destination ) {
+    .c-timeline__travelling &:first-child .c-timeline__item:first-child {
+      .c-route-step__line--top {
+        opacity: 0;
+      }
+    }
+    .c-timeline__travelling &:last-child .c-timeline__item:last-child {
+      .c-route-step__line--bottom {
+        opacity: 0;
+      }
+    }
+  }
+  @include bem-element( destination-heading ) {
+    .c-timeline__content {
+      position: relative;
+      z-index: 0;
+    }
+    .c-timeline__service--add-transfer + & {
+      margin-top: -1px;
+    }
+    .c-destination-heading__img {
+      @include respond-to-reverse($mobilexs) {
+        margin-right: - $sizex;
+      }
+    }
+  }
+  @include bem-element(origin) {
+    .c-route-date {
+      border: none;
+    }
+  }
+
+  // =======================
+  // Opciones para cuando el fondo no es blanco
+  // =======================
+  @if ( $s-bg--white == false ){
+    border-radius: $border-radius;
+    padding: $sizesx $sizex;
+    overflow: hidden;
+    background-color: white;
+    padding-left: 0;
+    .c-timeline__origin--start {
+      .c-timeline__item:first-child {
+        .c-route-date {
+          margin-top: -$sizesx;
+        }
+      }
+    }
+    .c-timeline__origin--end {
+      .c-timeline__item:last-child {
+        .c-route-date {
+          margin-bottom: -$sizesx;
+        }
+      }
+    }
+    .c-timeline__travelling:first-child {
+      .c-timeline__destination:first-child{
+        .c-timeline__item:first-child {
+          .c-route-date {
+            margin-top: -$sizesx;
+          }
+        }
+      }
+    }
+    .c-timeline__travelling:last-child {
+      .c-timeline__destination:last-child{
+        .c-timeline__item:last-child {
+          .c-route-date {
+            margin-bottom: -$sizesx;
+          }
+        }
+      }
+    }
+  }
+}

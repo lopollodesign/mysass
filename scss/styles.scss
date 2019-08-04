@@ -1,5 +1,35 @@
-$bg-clr: blue;
+// ================================ ·
+// STYLES CSS CON SASS
+// ================================ ·
 
-body {
-    background-color: $bg-clr;
-}
+// Settings
+// ===================== ·
+@import "settings/vars_index";
+
+// Tools
+// ===================== ·
+@import "tools/index";
+
+// Generic
+// ===================== ·
+@import "generic/index";
+
+// Componentes base
+// ===================== ·
+@import "elements/index";
+
+// Objetos genericos
+// ===================== ·
+@import "objects/index";
+
+// Componentes
+// ===================== ·
+// @import "components/index";
+
+// Frontlab
+// ===================== ·
+@import "frontlab/index";
+
+// Utilities
+// ===================== ·
+@import "utilities/index";

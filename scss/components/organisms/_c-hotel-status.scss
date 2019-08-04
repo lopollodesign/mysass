@@ -1,0 +1,26 @@
+// ================== ·
+// HOTEL STATUS
+// Estrellas y valoracion de hotel genérico
+// ================== ·
+
+.c-hotel-status{
+  @include flexible-container(row, nowrap, center, flex-start, inline-flex);
+  font-size: inherit;
+  & > *:not(:last-child){
+    margin-right: $sizesx;
+  }
+  @include bem-element( category ) {
+    font-size: 75%;
+    color: $hotel-star-clr;
+  }
+
+  @include bem-modifier( sm ) {
+    font-size: $font-size--small;
+  }
+  @include bem-modifier( md ) {
+    font-size: $font-size;
+  }
+  @include bem-modifier( lg ) {
+    font-size: $font-size--middle;
+  }
+}

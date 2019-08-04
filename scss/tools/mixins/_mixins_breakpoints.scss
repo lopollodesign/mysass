@@ -1,0 +1,127 @@
+// ================================ ·
+// MIXIN - FUNCTION - BREAKPOINTS
+// Herramientas para utilizar los breakpoints
+// ================================ ·
+
+// Utilities relacionadas con los breakpoints, sus nombres y tamaños
+//    >> breakpoint-next :
+//    Te da el nombre del siguiente item de la lista mientras no sea el ultimo
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+//    md
+@function breakpoint-next($name, $s-breakpoints: $s-grid-breakpoints, $breakpoint-names: map-keys($s-breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n != null and $n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+//    >> breakpoint-min :
+//    Si el numero es 0 ==> null
+//    Si el valor no es 0 del nombre que le pasas, te devuelve dicho valor, sino NULL
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    576px
+
+@function breakpoint-min($name, $s-breakpoints: $s-grid-breakpoints) {
+  $min: map-get($s-breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+//    >> breakpoint-max :
+//    Si es el último breackpoint ==> null
+//    Te da los píxeles máximos de este breakpoint
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    767.98px
+@function breakpoint-max($name, $s-breakpoints: $s-grid-breakpoints) {
+  $next: breakpoint-next($name, $s-breakpoints);
+  @return if($next, breakpoint-min($next, $s-breakpoints) - .02, null);
+}
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+// Useful for making responsive utilities.
+//
+//    >> breakpoint-infix :
+//    Te devuelve "-nombre" mientras sea más de 0
+//
+//    >> breakpoint-infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    ""  (Devuelve un valor vacío)
+//    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    "-sm" (Devuelve el nombre con un prefijo)
+
+@function breakpoint-infix($name, $s-breakpoints: $s-grid-breakpoints) {
+  @return if(breakpoint-min($name, $s-breakpoints) == null, null, "#{$name}");
+}
+
+// @mixin media-breakpoint-up
+// Si el valor del breakpoint es 0 no te crea el @media pero si la clase directa, sino te lo crea con el tamaño de éste
+
+@mixin media-breakpoint-up($name, $s-breakpoints: $s-grid-breakpoints) {
+  $min: breakpoint-min($name, $s-breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// @mixin media-breakpoint-down
+// Si le pasas el último breakpoint crea el @media con clase directa, sino te lo crea con el tamaño del que le pases
+
+@mixin media-breakpoint-down($name, $s-breakpoints: $s-grid-breakpoints) {
+  $max: breakpoint-max($name, $s-breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+//    media-breakpoint-between
+//    Te crea los mixins entre los dos parametros que le pidas
+@mixin media-breakpoint-between($lower, $upper, $s-breakpoints: $s-grid-breakpoints) {
+  $min: breakpoint-min($lower, $s-breakpoints);
+  $max: breakpoint-max($upper, $s-breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $s-breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $s-breakpoints) {
+      @content;
+    }
+  }
+}
+
+//    media-breakpoint-only
+//    Te crea los mixins del breackpoint exacto que le pidas
+@mixin media-breakpoint-only($name, $s-breakpoints: $s-grid-breakpoints) {
+  $min: breakpoint-min($name, $s-breakpoints);
+  $max: breakpoint-max($name, $s-breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $s-breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($name, $s-breakpoints) {
+      @content;
+    }
+  }
+}

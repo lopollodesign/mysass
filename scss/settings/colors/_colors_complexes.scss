@@ -1,0 +1,112 @@
+// ================================ ·
+// COLORS - COMPLEXES
+// Agrupaciones de colores
+// ================================ ·
+
+$branding-main-colors: (
+  brand:              $brand-color,
+  brand-secondary:    $brand-secondary-color,
+  brand-dark:         $brand-dark-color,
+) !default;
+
+$travelling-route-colors: (
+  1:                  $route-colors1,
+  2:                  $route-colors2,
+  3:                  $route-colors3,
+  4:                  $route-colors4,
+) !default;
+
+$map-origin-route-color: (
+  origin :            $origin-route-color,
+) !default;
+
+$gray-colors: (
+  lightest-gray:      $lightest-gray,
+  lighter-gray:       $lighter-gray,
+  light-gray:         $light-gray,
+  middle-gray:        $middle-gray,
+  dark-gray:          $dark-gray,
+  darker-gray:        $darker-gray,
+  darkest-gray:       $darkest-gray,
+) !default;
+
+$state-colors: (
+  success:            $success-color,
+  action:             $action-color,
+  warning:            $warning-color,
+  danger:             $danger-color,
+  grray:              $middle-gray,
+) !default;
+
+$rating-colors: (
+  rating25:           $clr-rating-25,
+  rating50:           $clr-rating-50,
+  rating75:           $clr-rating-75,
+  rating100:          $clr-rating-100,
+) !default;
+
+$primary-buttons-colors: (
+  default:            $lighter-gray,
+  primary:            $brand-color,
+  secondary:          $brand-secondary-color,
+) !default;
+
+$c-buttons-colors: (
+  default:            $lighter-gray,
+  primary:            $brand-color,
+  secondary:          $brand-secondary-color,
+  success:            $success-color,
+  action:             $action-color,
+  warning:            $warning-color,
+  danger:             $danger-color,
+  grray:              $middle-gray,
+) !default;
+
+$c-tag-colors: (
+  primary:            $brand-color,
+  secondary:          $brand-secondary-color,
+  success:            $success-color,
+  action:             $action-color,
+  warning:            $warning-color,
+  danger:             $danger-color,
+) !default;
+
+// "Merge" de mapas
+// ================================ ·
+$route-colors: join(
+  $travelling-route-colors ,
+  $map-origin-route-color
+) !default;
+
+$branding-colors: join(
+  $branding-main-colors ,
+  $route-colors
+) !default;
+
+$main-colors: join(
+  $branding-colors ,
+  $gray-colors
+) !default;
+
+$secondary-colors: join(
+  $state-colors ,
+  $rating-colors
+) !default;
+
+$all-colors: join(
+  $main-colors ,
+  $secondary-colors
+) !default;
+
+// Modificaciones de colores
+// ================================ ·
+$lighten-percentages: (
+  soft:       30,
+  heavy:      70,
+  heaviest:   90,
+) !default;
+
+$alpha-percentages: (
+  soft:       90,
+  middle:     50,
+) !default;

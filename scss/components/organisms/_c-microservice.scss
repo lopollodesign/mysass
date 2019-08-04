@@ -1,0 +1,423 @@
+// ================================ ·
+// MICROSERVICE
+// Fila fina de un servicio ya seleccionado
+// ================================ ·
+
+.c-microservice{
+  @include bem-element( primary ){
+    @include respond-to($mobilexs) {
+      @include flexible-container( row , nowrap , null, null );
+    }
+  }
+  @include bem-element( img ){
+    display: none;
+    background-color: white;
+    img{
+      @include img-cover( $c-microservice__img-size--mobile );
+    }
+    @include bem-modifier(icon) {
+      text-align: center;
+      color: $darker-gray;
+      i {
+        font-size: $font-size--bigger;
+        line-height: $c-microservice__img-size - ( $sizex * 2 );
+      }
+    }
+    @include bem-modifier(frame) {
+      padding: $sizex;
+      img {
+        border-radius: $border-radius--xs;
+      }
+    }
+    @include respond-to($mobilexs) {
+      @include rectangle( $c-microservice__img-size , $required: true );
+      display: block;
+      border: $s-bdr--lighter;
+      border-radius: $border-radius--xs;
+      overflow: hidden;
+      margin-right: $sizex;
+      .c-microservice--rentacar &,
+      .c-microservice--transfer &,
+      .c-microservice--transport--transfer & {
+        display: flex;
+        align-items: center;
+        img {
+          height: auto;
+          width: 100%;
+        }
+      }
+      @include rtl {
+        margin-right: 0;
+        margin-left: $sizex;
+      }
+    }
+  }
+  @include bem-element( img-company ){
+    @include flexible-container;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+  }
+  @include bem-element( main ){
+    @include transition;
+    @include display-flex;
+    @include flex-flow( column , nowrap );
+    padding: $sizemd $sizex $sizex;
+    flex-basis: 100%;
+    justify-content: center;
+    border: $s-bdr--lighter;
+    border-radius: $border-radius--xs;
+    position: relative;
+    background-color: white;
+    .c-microservice:not(.c-microservice--transfer-destination):not(.c-microservice--desactive) .c-microservice__primary &:hover {
+      cursor: pointer;
+      .c-microservice__title {
+        text-decoration: underline;
+      }
+    }
+    @include respond-to($mobilexs) {
+      padding: $sizemd;
+    }
+  }
+  @include bem-element( icon-locked ) {
+    @include position-absolute( null , 10px , 10px , null , null );
+    color: $lighter-gray;
+    font-size: $font-size--small;
+    @include respond-to( $mobilexs ) {
+      right: $sizemd;
+    }
+  }
+  @include bem-element( ribbon ) {
+    @include position-absolute( 1 , -1px , null , null , null , null , null );
+    padding: 2px $sizex;
+    align-self: center;
+    border-bottom-left-radius: $border-radius--xs;
+    border-bottom-right-radius: $border-radius--xs;
+    font-size: $font-size--small;
+    color: white;
+    & + * {
+      margin-top: $sizex;
+    }
+    @include bem-modifier( lg ) {
+      padding: 4px 20px;
+      & + * {
+        margin-top: $sizex;
+      }
+    }
+    @include respond-to($mobile) {
+      align-self: initial;
+      border-radius: $border-radius--xs;
+      border-bottom-left-radius: 0;
+      top: -5px;
+      left: -5px;
+      &::before,
+      &::after {
+        @include position-absolute( 1 , null , null , -5px , null , null , null );
+      }
+      &::before {
+        left: 0;
+        @include triangle( "up-right" , 5px , 5px , $darker-gray );
+        @include rtl {
+          display: none;
+        }
+      }
+      &::after {
+        right: 0;
+        @include triangle( "up-left" , 5px , 5px , $darker-gray );
+        display: none;
+        @include rtl {
+          display: block;
+        }
+      }
+      @include rtl {
+        left: initial;
+        right: -5px;
+      }
+    }
+    @include respond-to-reverse($mobile){
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      max-width: 75%;
+    }
+  }
+  @include bem-element( moreinfo ) {
+    font-size: $font-size--small;
+    @include respond-to($mobilexs) {
+      padding-left: $c-microservice__img-col-width;
+      @include rtl {
+        padding-left: 0;
+        padding-right: $c-microservice__img-col-width;
+      }
+    }
+    @include bem-element( main ) {
+      position: relative;
+      background-color: $lightest-gray;
+      border: $s-bdr--lighter;
+      border-top: 0;
+      padding: $sizemd;
+      .c-transport-details {
+        margin: -$sizemd;
+      }
+      .c-rentacar-summary {
+        margin-bottom: -$sizemd;
+      }
+      .c-add-transfer__form {
+        padding: 0;
+      }
+    }
+  }
+  @include bem-element( body ) {
+    flex: 1 1;
+    @include respond-to($mobilexs) {
+      @include flexible-container( row , nowrap , stretch , null );
+    }
+  }
+  @include bem-element( content ) {
+    @include flexible-container( column , wrap , null , space-around );
+    position: relative;
+    @include respond-to($mobilexs) {
+      flex-basis: 100%;
+      padding-right: $sizex;
+      @include rtl {
+        padding-right: 0;
+        padding-left: $sizex;
+      }
+    }
+    @include respond-to($tablet) {
+      .c-microservice--rentacar & {
+        padding-right: $sizemd + $c-microservice__img-size + $sizex;
+      }
+    }
+  }
+  @include bem-element( action ) {
+    @include flexible-container( row , nowrap , center , null );
+    position: relative;
+    @include respond-to-reverse($mobilexs) {
+      @include t-separator;
+    }
+  }
+  @include bem-element( heading ) {
+    @include respond-to($mobilexs) {
+      @include display-inline-flex;
+      @include flex-flow(row , wrap);
+      & > *:not(:last-child){
+        margin-right: $sizex;
+        @include rtl {
+          margin-right: 0;
+          margin-left: $sizex;
+        }
+      }
+    }
+  }
+  @include bem-element( details ) {
+    color: #717171;
+    @include respond-to-reverse($mobilexs) {
+      .c-microservice--transport & {
+        @include display-flex;
+        @include flex-flow(row, wrap);
+        justify-content: center;
+        text-align: center;
+      }
+      .c-microservice--transport .c-microservice__main > & {
+        margin-bottom: $sizex;
+      }
+    }
+  }
+  @include bem-element( detail ) {
+    @include display-inline-flex;
+    font-size: $font-size--small;
+    line-height: $line-height--small;
+    i {
+      line-height: $line-height--small;
+      margin-right: $sizesx;
+      @include rtl {
+        margin-right: 0;
+        margin-left: $sizesx;
+      }
+    }
+    &:not(:last-child) {
+      margin-right: $sizex;
+      @include rtl {
+        margin-right: 0;
+        margin-left: $sizex;
+      }
+    }
+  }
+  .c-transport-heading {
+    & + * {
+      margin-top: $sizex;
+    }
+  }
+  @include bem-element( map-section ) {
+    margin-top: $sizex;
+  }
+  @include bem-element( map ) {
+    height: $c-microservice__map-height;
+    border-radius: $border-radius;
+    width: 100%;
+    .mapboxgl-map {
+      border-radius: $border-radius--xs;
+      border: $s-bdr--lightest;
+    }
+    @include bem-element( title ) {
+      margin-top: $sizesx;
+      color: $dark-gray;
+    }
+  }
+  @include bem-modifier( desactive ) {
+    .c-microservice__main {
+      @include bg-desactive();
+      border: $s-bdr--lightest;
+    }
+    .c-transport-heading__icon {
+      animation: none;
+      position: initial;
+    }
+  }
+
+  // Modificador de tamaño
+  // Solo hotel y ticket con menos de 4 servicios
+  @include bem-element( extension ) {
+    @include flexible-container( column , nowrap , null , flex-end );
+    width: 100%;
+    font-size: $font-size--small;
+    margin-top: $sizex;
+    & > *:not(:first-child) {
+      margin-top: $sizesx;
+    }
+  }
+  @include bem-element( closedtour-destinations ) {
+    @include respond-to( $mobile ) {
+      max-width: 300px;
+    }
+  }
+  @include bem-modifier( lg ) {
+    .c-microservice__title {
+      font-size: $font-size--middle;
+    }
+    .c-microservice__heading {
+      margin-bottom: $sizesx;
+    }
+    .c-microservice__img {
+      display: block;
+      @include respond-to($mobilexs) {
+        @include rectangle($c-microservice__img-size--big, $required: true);
+      }
+    }
+    .c-microservice__body {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .c-microservice__content {
+      justify-content: flex-start;
+      flex: 2 1;
+    }
+    .c-microservice__action {
+      @include align-items( flex-start );
+    }
+    @include respond-to( $desktop ) {
+      .c-microservice__extension {
+        order: 3;
+      }
+    }
+    @include respond-to-reverse( $desktop ) {
+      .c-microservice__action {
+        @include t-separator;
+        width: 100%;
+      }
+    }
+  }
+  // Modificaciones grandes según servicio
+  // Rent a car
+  @include bem-element( rentacar-brand ) {
+    max-width: $c-microservice__img-size;
+    img {
+      max-height: $c-microservice__img-size - ( $sizex * 2 );
+      max-width: 100%;
+    }
+    @include respond-to-reverse($mobile) {
+      margin-bottom: $sizex;
+    }
+    @include respond-to($tablet) {
+      position: absolute;
+      right: $sizesx;
+    }
+  }
+  // Ribbon de "We love it"
+  .ribbon-new-ext {
+    top: -6px;
+    left: -10px;
+    padding: 2px $sizex;
+    .corner {
+      bottom: -10px;
+      border-width: 5px;
+    }
+    @include respond-to-reverse( $mobilexs ) {
+      left: $sizex;
+      border-bottom-left-radius: $border-radius;
+      .corner {
+        display: none;
+      }
+    }
+    @include rtl {
+      left: initial;
+      right: -6px;
+      .corner {
+        display: none;
+      }
+      i {
+        margin: 0;
+        margin-left: $sizesx;
+      }
+      @include respond-to-reverse( $mobilexs ) {
+        left: initial;
+        right: $sizex;
+      }
+    }
+  }
+  // Tablet en vertical
+  @include respond-to-between( $mobile , $tablet ) {
+    @include bem-element( body ) {
+      @include flex-flow( column , nowrap );
+    }
+    @include bem-element( img ) {
+      display: none !important;
+    }
+    @include bem-element( main ) {
+      padding: $sizemd $sizex $sizex;
+    }
+    @include bem-element( icon-locked ) {
+      right: $sizex;
+    }
+    @include bem-element( action ) {
+      @include t-separator;
+      width: 100%;
+    }
+    @include bem-element( details ) {
+      .c-microservice--transport & {
+        @include display-flex;
+        @include flex-flow(row, wrap);
+        justify-content: center;
+        text-align: center;
+      }
+      .c-microservice--transport .c-microservice__main > & {
+        margin-bottom: $sizex;
+      }
+    }
+  }
+  // Cambios cuando esta dentro de un `box-complete` y no necesita estar en una caja
+  .box-complete & {
+    margin-top: $sizemd;
+    .c-microservice__main {
+      border: none;
+      padding: 0;
+      @include respond-to-reverse( $mobilexs ) {
+        padding-top: 20px;
+      }
+    }
+  }
+}

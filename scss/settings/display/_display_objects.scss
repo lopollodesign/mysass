@@ -1,0 +1,20 @@
+// ====================================== ·
+// DISPLAY - OBJECTS
+// ====================================== ·
+
+// Meddia
+// ============= ·
+$o-meddia-sizes: (
+        'sm': (
+                gap: $sizex,
+                img-size: 50px,
+        ),
+        'md': (
+                gap: $sizex + 5px,
+                img-size: 100px,
+        ),
+        'lg': (
+                gap: $sizemd,
+                img-size: 200px,
+        ),
+) !default;
