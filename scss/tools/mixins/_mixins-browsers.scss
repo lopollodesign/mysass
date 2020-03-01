@@ -1,0 +1,132 @@
+// ================================ ·
+// MIXIN - BROWSERS
+// Añade los prefijos a las caracteristicas
+// de css que lo necesitan navegadores
+// ================================ ·
+
+@mixin t-display-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin t-display-inline-flex {
+  display: -webkit-flex;
+  display: inline-flex;
+}
+
+@mixin t-flex-direction( $direction : row ) {
+  -webkit-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin t-flex-wrap( $wrap : nowrap ) {
+  -webkit-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin t-justify-content( $justify : space-between ) {
+  -webkit-justify-content: $justify;
+  justify-content: $justify;
+}
+
+@mixin t-flex-flow( $direction : row , $wrap : nowrap ) {
+  -webkit-flex-flow: $direction $wrap;
+  flex-flow: $direction $wrap;
+}
+
+@mixin t-flex-basis( $value : auto ) {
+  -webkit-flex-basis: $value;
+  flex-basis: $value;
+}
+
+@mixin t-align-items( $alignment: center ) {
+  -webkit-align-items: $alignment;
+  align-items: $alignment;
+}
+
+@mixin t-align-content( $alignment: center ) {
+  -webkit-align-content: $alignment;
+  align-content: $alignment;
+}
+
+@mixin t-align-self( $alignment: center ) {
+  -webkit-align-self: $alignment;
+  align-self: $alignment;
+}
+
+@mixin t-flexible-container( $direction : row , $wrap : nowrap , $alignment : center , $justify-content : center , $display: flex ) {
+  @if $display != 'flex' {
+    @if $display == 'inline-flex' {
+      @include t-display-inline-flex;
+    }
+    @else {
+      display: $display;
+    }
+  }
+  @else {
+    @include t-display-flex;
+  }
+  @include t-flex-flow( $direction , $wrap );
+  @include t-align-items( $alignment );
+  @include t-justify-content( $justify-content );
+}
+
+@mixin t-content-center( $display: flex ) {
+  @include t-flexible-container( column , null , $display : $display );
+}
+
+// TRANSICIONES
+// ======================
+@mixin t-transition( $time: $s-transitions-duration , $prop: false , $function: ease , $delay: 0s ) {
+  @if $prop or $function {
+    @if $prop == false {
+      -webkit-transition: all $time $function $delay;
+      transition: all $time $function $delay;
+    } @else {
+      -webkit-transition: $prop $time $function $delay;
+      transition: $prop $time $function $delay;
+    }
+  }
+  @else {
+    -webkit-transition-duration: $time;
+    transition-duration: $time;
+  }
+}
+
+// TRANSFORM
+// ======================
+@mixin t-transform( $type-transform , $value ) {
+  @if $type-transform != 'origin' {
+    -ms-transform: #{$type-transform}($value); /* IE 9 */
+    -webkit-transform: #{$type-transform}($value); /* Safari 3-8 */
+    transform: #{$type-transform}($value);
+  } @else {
+    -ms-transform-origin: $value; /* IE 9 */
+    -webkit-transform-origin: $value; /* Safari 3-8 */
+    transform-origin: $value;
+  }
+}
+
+// BOX SHADOW
+// ======================
+@mixin t-box-shadow( $horizontal: 0 , $vertical: 0 , $blur: 0 , $color: black , $opacity: 50% , $inset: false ){
+  @if $horizontal == none {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  @else {
+    @if $inset == false {
+      -webkit-box-shadow: $horizontal $vertical $blur rgba( $color , $opacity);
+      -moz-box-shadow: $horizontal $vertical $blur rgba( $color , $opacity);
+      box-shadow: $horizontal $vertical $blur rgba( $color , $opacity);
+    }
+    @else {
+      -webkit-box-shadow: inset $horizontal $vertical $blur rgba( $color , $opacity);
+      -moz-box-shadow: inset $horizontal $vertical $blur rgba( $color , $opacity);
+      box-shadow: inset $horizontal $vertical $blur rgba( $color , $opacity);
+    }
+  }
+}

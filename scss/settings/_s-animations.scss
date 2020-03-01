@@ -1,0 +1,9 @@
+// ====================================== ·
+// SETTINGS - ANIMATIONS
+// ====================================== ·
+
+$s-core-transitions-duration: 2s !default;
+
+$s-transitions-duration: .2s !default;
+$s-transitions-duration-md: $s-transitions-duration * 2 !default;
+$s-transitions-duration-lg: $s-transitions-duration-md * 2 !default;

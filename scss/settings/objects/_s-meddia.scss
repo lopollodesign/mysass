@@ -1,0 +1,20 @@
+// ====================================== ·
+// SETTINGS - DISPLAY - OBJECTS
+// ====================================== ·
+
+$o-map-meddia: $o-map-space;
+
+$o-meddia-sizes: (
+        'sm': (
+                gap: $s-space-small,
+                img-size: 50px,
+        ),
+        'md': (
+                gap: $s-space-small + 5px,
+                img-size: 100px,
+        ),
+        'lg': (
+                gap: $s-space,
+                img-size: 200px,
+        ),
+) !default;

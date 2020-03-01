@@ -1,0 +1,43 @@
+// ====================================== ·
+// OBJECTS - PACK
+// ====================================== ·
+
+.o-pack {
+  width: 100%;
+  margin-left: 0;
+  display: table;
+  table-layout: fixed;
+
+  // BASIC ELEMENTS
+  @include t-bem-element( item ) {
+    display: table-cell;
+    vertical-align: top;
+
+    // VERTICAL ALIGNMENT
+    .o-pack--middle > & {
+      vertical-align: middle;
+    }
+    .o-pack--bottom > & {
+      vertical-align: bottom;
+    }
+  }
+
+  // MODIFIERS:
+  // UNEQUAL-WIDTH ITEMS
+  @include t-bem-modifier( auto ) {
+    table-layout: auto;
+  }
+  // SIZE'S
+  @each $key , $gutter-size in $o-map-space {
+    @include t-bem-modifier( $key ) {
+      border-spacing: $gutter-size;
+    }
+  }
+  // REVERSE
+  @include t-bem-modifier( reverse ) {
+    direction: rtl;
+    > .o-pack__item {
+      direction: ltr;
+    }
+  }
+}

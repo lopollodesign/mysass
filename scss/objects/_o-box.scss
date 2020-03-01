@@ -1,0 +1,36 @@
+// ====================================== ·
+// OBJECTS - BOX
+// ====================================== ·
+
+.o-box {
+  @include t-clearfix;
+  display: block;
+  padding: $s-space;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  // SIZE'S
+  @each $key, $padding in $o-map-space {
+    @include t-bem-modifier($key) {
+      padding: $padding;
+    }
+  }
+
+  // HORIZONTAL
+  @each $key, $padding in $o-map-space {
+    @include t-bem-modifier(#{$key}--horizontal) {
+      padding-left: $padding;
+      padding-right: $padding;
+    }
+  }
+
+  // VERTICAL
+  @each $key, $padding in $o-map-space {
+    @include t-bem-modifier(#{$key}--vertical) {
+      padding-top: $padding;
+      padding-bottom: $padding;
+    }
+  }
+}

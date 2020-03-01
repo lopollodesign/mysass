@@ -1,0 +1,23 @@
+// ------------------------------
+// @MIXIN - ALL STATES
+// Para aplicar estilos a todos los estados
+// default | :hover | :active | :focus
+// ------------------------------
+
+@mixin t-all-states {
+  &,
+  &:hover,
+  &:active,
+  &:focus{
+    @content;
+  }
+}
+
+@mixin t-action-states {
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus:active {
+    @content;
+  }
+}

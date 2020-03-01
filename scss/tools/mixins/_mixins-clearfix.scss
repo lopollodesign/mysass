@@ -1,0 +1,11 @@
+// ================================ ·
+// MIXIN - CLEARFIX
+// ================================ ·
+
+@mixin t-clearfix {
+  &:after {
+    content: "" !important;
+    display: block !important;
+    clear: both !important;
+  }
+}

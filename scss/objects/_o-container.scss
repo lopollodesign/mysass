@@ -1,3 +1,28 @@
 // ====================================== ·
 // OBJECTS - CONTAINER
 // ====================================== ·
+
+.o-container {
+  @include t-clearfix;
+  max-width: map-get( $o-map-container-widths , default );
+  padding-right: $s-space;
+  padding-left:  $s-space;
+  margin-right: auto;
+  margin-left:  auto;
+
+  // PADDINGS'S
+  @each $key, $padding in $o-map-space {
+    @include t-bem-modifier( gutters-#{$key} ) {
+      @each $position in remove( $s-map-positions-values--horizontal , center ) {
+        padding-#{$position}: $padding;
+      }
+    }
+  }
+
+  // SIZE'S
+  @each $key , $size in map-remove( $o-map-container-widths , default ){
+    @include t-bem-modifier( $key ){
+      max-width: $size;
+    }
+  }
+}

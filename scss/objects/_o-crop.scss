@@ -1,0 +1,43 @@
+// ====================================== ·
+// OBJECTS - CROP
+// ====================================== ·
+
+.o-crop {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  @include t-bem-element( content ) {
+    position: absolute;
+    top:  0;
+    left: 0;
+    max-width: none;
+    @include t-bem-modifier( right ){
+      right: 0;
+      left: auto;
+    }
+    @include t-bem-modifier( bottom ){
+      top: auto;
+      bottom: 0;
+    }
+    @include t-bem-modifier( center ){
+      top:  50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  // VARIANTS
+  @each $crop-aspect in $o-map-crop-aspect {
+    @each $antecedent, $consequent in $crop-aspect {
+      @if (type-of($antecedent) != number) {
+        @error "`#{$antecedent}` needs to be a number."
+      }
+      @if (type-of($consequent) != number) {
+        @error "`#{$consequent}` needs to be a number."
+      }
+      @include t-bem-modifier( #{$antecedent}\:#{$consequent} ) {
+        padding-bottom: ($consequent/$antecedent) * 100%;
+      }
+    }
+  }
+}

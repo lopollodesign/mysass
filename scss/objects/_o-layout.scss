@@ -1,0 +1,102 @@
+// ====================================== ·
+// OBJECTS - LAYOUT
+//
+// Mirar como lo hacen aqui:
+// https://progressivered.com/fla
+// ====================================== ·
+
+
+.o-layout {
+  display: block;
+  list-style: none;
+
+  // BASIC ELEMENTS
+  @include t-bem-element( item ) {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+  }
+
+  // GUTTER'S
+  //@include o-layout-gutters;
+
+  @each $bp-key, $bp-value in $s-map-breakpoints {
+    @if $bp-value == 0 {
+      @include o-layout-gutters;
+
+    } @else {
+      @include t-mq-min( $bp-value ) {
+        @include o-layout-gutters( \@#{$bp-key} );
+      }
+    }
+  }
+
+  // ALIGNMENT MODIFIERS
+  // VERTICAL
+  @each $aligment in middle, bottom {
+    @include t-bem-modifier( $aligment ) {
+      > .o-layout__item {
+        vertical-align: $aligment;
+      }
+    }
+  }
+  // HORIZONTAL
+  @each $aligment in center, right, left {
+    @include t-bem-modifier( $aligment ) {
+      text-align: $aligment;
+      > .o-layout__item {
+        text-align: left;
+      }
+    }
+  }
+
+  // STRETCH
+  @include t-bem-modifier( stretch ) {
+    @include t-display-flex;
+    @include t-flex-wrap( wrap );
+    @include t-justify-content;
+    min-width: 100%;
+    .o-layout > & {
+      min-width: 0;
+    }
+    > .o-layout__item {
+      @include t-display-flex;
+    }
+    &.o-layout--center {
+      @include t-justify-content( center );
+    }
+    &.o-layout--end {
+      @include t-justify-content( flex-end );
+    }
+    &.o-layout--start {
+      @include t-justify-content( flex-start );
+    }
+    &.o-layout--space-initial {
+      @include t-justify-content( normal );
+    }
+    &.o-layout--stretch--middle {
+      @include t-align-items;
+    }
+    &.o-layout--columns {
+      > .o-layout__item {
+        @include t-flex-direction( column );
+      }
+    }
+  }
+
+  // REVERSE
+  @include t-bem-modifier ( reverse ) {
+    direction: rtl;
+    > .o-layout__item {
+      direction: ltr;
+    }
+  }
+
+  // AUTO WIDTH ITEMS
+  @include t-bem-modifier ( auto ) {
+    > .o-layout__item {
+      width: auto;
+    }
+  }
+}

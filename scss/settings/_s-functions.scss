@@ -1,0 +1,41 @@
+// ====================================== ·
+// SETTINGS - FUNCTIONS
+// Funciones pensadas solo para el trabajo con variables
+// ====================================== ·
+
+// MAP-COLLECT
+// Fusion de diferentes mapas
+@function map-collect($maps...) {
+  $collection: ();
+  @each $map in $maps {
+    @if($map != false){
+      $collection: map-merge($collection, $map);
+    }
+  }
+  @return $collection;
+}
+
+// ODD PLUS ONE
+// Si el numero que le das no es par te suma 1
+@function odd-plus-one( $number ) {
+  @if $number % 2 != 0 {
+    $number: $number + 1;
+  }
+  @return $number;
+}
+
+// Borrar de una lista
+@function remove($list, $value, $recursive: false) {
+  $result: ();
+
+  @for $i from 1 through length($list) {
+    @if type-of(nth($list, $i)) == list and $recursive {
+      $result: append($result, remove(nth($list, $i), $value, $recursive));
+    }
+    @if nth($list, $i) != $value {
+      $result: append($result, nth($list, $i));
+    }
+  }
+
+  @return $result;
+}

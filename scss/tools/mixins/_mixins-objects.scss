@@ -1,0 +1,83 @@
+// ================================ ·
+// MIXIN - OBJECTS
+// ================================ ·
+
+@mixin o-ratio-size($width, $height) {
+  &::before {
+    padding-top: ($height / $width) * 100%;
+  }
+}
+
+@mixin o-flexbox {
+  @include t-display-flex;
+  min-width: 100%;
+  & > &,
+  .o-layout > &,
+  & > .o-flexbox,
+  .o-flexbox > &,
+  .o-flexbox\@xs > &,
+  .o-flexbox\@sm > & {
+    min-width: 0;
+  }
+}
+
+@mixin o-flexbox--generic-row( $bp-key : null ) {
+  @include t-bem-modifier( generic-row#{$bp-key} ) {
+    @include t-flexible-container( row , nowrap, null , space-between , null );
+  }
+}
+
+@mixin o-flexbox--generic-column( $bp-key : null ) {
+  @include t-bem-modifier( generic-column#{$bp-key} ) {
+    @include t-flexible-container( column , nowrap, null , space-between , null );
+  }
+}
+
+@mixin o-flexbox--generic-center( $bp-key : null ) {
+  @include t-bem-modifier( generic-center#{$bp-key} ) {
+    @include t-flexible-container( column , $display: null );
+  }
+}
+
+
+@mixin o-table( $bp-key : null ) {
+  @each $key, $cells-padding in map-remove( $o-map-space , none , large ) {
+    @include t-bem-modifier( #{$key}#{$bp-key} ) {
+      th,
+      td,
+      .o-table__col {
+        @if ( $cells-padding > 10px ) {
+          padding: $cells-padding round($cells-padding / 2);
+        } @else {
+          padding: $cells-padding;
+        }
+      }
+      // Hacemos el padding mas pequeño a partir del ´medium´
+      .o-table__section__heading {
+        .o-table__col {
+          @if $key == medium {
+            padding-top: round( $cells-padding / 2 );
+            padding-bottom: round( $cells-padding / 2 );
+          } @else {
+            padding-top: $cells-padding;
+            padding-bottom: $cells-padding;
+          }
+
+        }
+      }
+
+    }
+  }
+}
+
+@mixin o-layout-gutters( $bp-key : null ) {
+  @each $key, $gutter in map-remove( $o-map-space , none ) {
+    @include t-bem-modifier( gutter-#{$key}#{$bp-key} ) {
+      margin-left: -$gutter;
+      > .o-layout__item {
+        padding-left: $gutter;
+      }
+    }
+  }
+}
+

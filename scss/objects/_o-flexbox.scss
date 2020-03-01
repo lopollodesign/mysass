@@ -1,0 +1,35 @@
+// ====================================== ·
+// OBJECTS - FLEXBOX
+// ====================================== ·
+
+.o-flexbox {
+
+  // BASE
+  @include o-flexbox;
+  @include t-bem-modifier( inline ) {
+    @include t-display-inline-flex;
+    min-width: initial;
+  }
+
+  // FORMATOS POR BREACKPOINT
+  @each $bp-key, $bp-value in $s-map-breakpoints {
+    @if $bp-value == 0 {
+      @include o-flexbox--generic-row;
+      @include o-flexbox--generic-column;
+      @include o-flexbox--generic-center;
+    } @else {
+      @include t-mq-min( $bp-value ) {
+        &\@#{$bp-key} {
+          @include o-flexbox;
+        }
+        @include t-bem-modifier( inline\@#{$bp-key} ) {
+          @include t-display-inline-flex;
+          min-width: initial;
+        }
+        @include o-flexbox--generic-row( \@#{$bp-key} );
+        @include o-flexbox--generic-column( \@#{$bp-key} );
+        @include o-flexbox--generic-center( \@#{$bp-key} );
+      }
+    }
+  }
+}

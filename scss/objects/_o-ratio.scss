@@ -1,0 +1,53 @@
+// ====================================== ·
+// OBJECTS - RATIO
+// ====================================== ·
+
+// De momento dejo desactivada la opcion de breackpoints del objeto
+$o-ratio-breackpoints: false;
+
+.o-ratio {
+  position: relative;
+  &::before {
+    display: block;
+    width: 100%;
+    content: '';
+    // POR DEFECTO => (1:1)
+    padding-top: 100%;
+  }
+
+  > * {
+    @include t-rectangle( 100% );
+    @include t-position-properties( 0 , 0 , 0 , 0 );
+  }
+
+  // VARIANTES
+  @each $width, $height in $o-map-ratio-aspect {
+    @include t-bem-modifier( #{$width}\:#{$height} ){
+      @include o-ratio-size( $width , $height );
+    }
+  }
+
+  // BREACKPOINTS
+  @if $o-ratio-breackpoints {
+    @each $bp-key, $bp-value in map-remove($s-map-breakpoints, 'xx'){
+      @include t-mq-min( $bp-value ) {
+        @each $width, $height in $o-map-ratio-aspect {
+          @include t-bem-modifier( #{$width}\:#{$height}\@#{$bp-key} ) {
+            @include o-ratio-size( $width , $height );
+          }
+          // OPCION DE RESETAR EL RATIO
+          // En principio se usa solo para los `@breackpoints`
+          @include t-bem-modifier( unset\@#{$bp-key} ) {
+            position: initial;
+            &::before {
+              display: none;
+            }
+            > * {
+              @include t-position-properties( initial , initial , initial , initial , initial );
+            }
+          }
+        }
+      }
+    }
+  }
+}

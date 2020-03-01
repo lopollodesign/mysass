@@ -1,0 +1,41 @@
+// -----------------------  ·
+// MIXIN - SELECTORS
+//
+// BEM-ELEMENT - BEM-MODIFIER
+// - Te crea los espacios de BEM
+// - Si le pasas una lista de parametros te crara una clase para cada uno
+// -----------------------  ·
+
+@mixin t-bem-element( $elements... ) {
+  $elements-list: ();
+  $prefix-selector: '#{&}__';
+  @each $element in $elements {
+    $elements-list: append( $elements-list , ( $prefix-selector + $element ) , comma );
+  }
+  @at-root #{$elements-list} {
+    @content;
+  }
+}
+
+@mixin t-bem-modifier( $modifiers... ) {
+  $modifiers-list: ();
+  $prefix-selector: '#{&}--';
+  @each $modifier in $modifiers {
+    $modifiers-list: append( $modifiers-list , ( $prefix-selector + $modifier ) , comma );
+  }
+  @at-root #{$modifiers-list} {
+    @content;
+  }
+}
+
+// MULTIPLE-SELECTORS
+// Si le pasas una lista de selectores te la devuelve igual por cada item
+@mixin t-multiple-selectors( $selectors... ) {
+  $selectors-list: ();
+  @each $selector in $selectors {
+    $selectors-list: append( $selectors-list , $selector , comma );
+  }
+  #{$selectors-list} {
+    @content;
+  }
+}

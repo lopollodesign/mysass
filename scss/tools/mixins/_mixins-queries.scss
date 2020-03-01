@@ -1,0 +1,45 @@
+// ================================ ·
+// MIXIN - MEDIA QUERIES
+// Herramientas para aplicar mediaQueries
+// --- > (tamaños en _display_general)
+// ================================ ·
+
+@mixin t-mq-min( $width ){
+  @media only screen and ( min-width: $width ){
+    @content;
+  }
+}
+
+@mixin t-mq-max( $width ){
+  @media only screen and ( max-width: $width - 1px ){
+    @content;
+  }
+}
+
+@mixin t-mq-between( $min , $max ){
+  @media only screen and ( min-width: $min ) and ( max-width: $max - 1px ){
+    @content;
+  }
+}
+
+@mixin t-mq-max-and-between( $max: $s-bp-mobile--xs , $min-between: $s-bp-mobile , $max-between: $s-bp-tablet , $include-max: true ) {
+  @if $include-max {
+    @include t-mq-max( $max ){
+      @content
+    }
+  } @else {
+    @content
+  }
+  @include t-mq-between( $min-between , $max-between ){
+    @content
+  }
+}
+
+@mixin t-mq-between-and-min( $min-between: $s-bp-mobile--xs , $max-between: $s-bp-mobile , $min: $s-bp-tablet ){
+  @include t-mq-between( $min-between , $max-between ){
+    @content
+  }
+  @include t-mq-min( $min ){
+    @content
+  }
+}

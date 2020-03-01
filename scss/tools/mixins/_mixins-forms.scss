@@ -1,0 +1,129 @@
+// ================================ ·
+// MIXIN - FORMS
+// Herramientas creacion de formas basicas
+// Ejemplo: circulos, rentangulos, cuadrados... etc etc
+// ================================ ·
+
+// FIXED SIZE
+// Cuando queremos obligar a que tenga un tamaño
+// ====================
+@mixin t-fixed-size(  $size , $property: 'width' ) {
+  #{$property}: $size;
+  min-#{$property}: $size;
+  max-#{$property}: $size;
+}
+
+// RECTANGLE
+// Crea un rectangulo
+// Si solo le pasamos un valor, lo hace cuadrado
+// Si le decimos que es requerido le oblida a medir eso, aunque este en un contenedor flexible
+// ====================
+@mixin t-rectangle( $w, $h: false , $required: false ) {
+  @if $required == false {
+    width: $w;
+    @if $h == false {
+      height: $w;
+    } @else {
+      height: $h;
+    }
+  } @else {
+    @include t-fixed-size($w, width);
+    @if $h == false {
+      @include t-fixed-size($w, height);
+    } @else {
+      @include t-fixed-size($h, height);
+    }
+  }
+}
+
+// CERCLE
+// Crea un circulo
+// ====================
+@mixin t-cercle( $w, $h: false , $required: false ) {
+  @include t-rectangle($w, $h, $required);
+  border-radius: $w * 10;
+}
+
+// POSITION PROPERTIES
+// Coordenadas de la posicion de un elemento
+// ====================
+@mixin t-position-properties( $t, $r, $b, $l , $position: absolute ) {
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+  position: $position;
+}
+
+// POSITION
+// Ayuda a poner en una sola linea todas las caracteristicas de un position
+// Normalmente su utilidad es cuando es `absoute` o `fixed`
+// ====================
+@mixin t-position( $zi, $t, $r, $b, $l, $w: auto, $h: auto , $display: block , $position: absolute ) {
+
+  content: ' ';
+  z-index: $zi;
+
+  // TIPO DE DISPLAY
+  @if $display == 'flex' {
+    @include t-display-flex;
+  } @else if $display == 'inline-flex' {
+    @include t-display-inline-flex;
+  } @else {
+    display: $display;
+  }
+  @include t-rectangle($w, $h);
+  @include t-position-properties($t, $r, $b, $l, $position);
+}
+
+// POSITION MIDDLE
+// Para cuando se quiere poner centrado un elemento con posicion absoluta, al 50% y margen negativo
+// ====================
+@mixin t-position-middle( $negative-margin , $direction: vertical , $position: absolute , $zindex: null ) {
+  position: $position;
+  z-index: $zindex;
+  @if $direction == vertical {
+    top: 50%;
+    margin-top: -$negative-margin;
+  } @else if $direction == horizontal {
+    left: 50%;
+    margin-left: -$negative-margin;
+  } @else {
+    @error 'la direccion de t-position-middle tiene que ser horizontal o vertical'
+  }
+}
+
+// IMG COVER
+// Sirve para poner una imagen con el efecto del bg cover pero con la imagen en el HTML
+// ====================
+@mixin t-img-cover( $h ) {
+  @include t-rectangle(100%);
+  object-fit: cover;
+  object-position: center;
+  max-height: $h;
+}
+
+// IMG OVERLAYING
+// Pone una capa algo oscura pero transparente sobre las imagenes que tienen contenido encima
+// Conseguimos separar para que la imagen no afecte al texto
+// ====================
+%bg-overlaying {
+  background-color: $s-image__overlaying-bg;
+}
+
+%bg-overlaying--soft {
+  background-color: $s-image__overlaying-bg--soft;
+}
+
+@mixin t-after-overlaying( $position: relative , $intensity: null, $z-index: 0) {
+  position: $position;
+  &::after {
+    @if $intensity == 'soft' {
+      @extend %bg-overlaying--soft;
+    } @else {
+      @extend %bg-overlaying;
+    }
+    @include t-position($z-index, 0, 0, 0, 0, null, null);
+    @content;
+  }
+}

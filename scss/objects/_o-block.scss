@@ -1,0 +1,33 @@
+// ====================================== ·
+// OBJECTS - BLOCK
+// ====================================== ·
+
+.o-block {
+  display: block;
+
+  // BASIC ELEMENTS
+  &  > .o-block__item {
+    margin-bottom: $s-space;
+    display: block;
+    @include t-bem-modifier( img ){
+      & > * {
+        max-width: 100%;
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // SIZE´S
+  @each $key, $margin-img in $o-map-space {
+    @include t-bem-modifier( $key ) {
+      &  > .o-block__item {
+        margin-bottom: $margin-img;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

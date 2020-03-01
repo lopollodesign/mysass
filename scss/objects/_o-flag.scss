@@ -1,0 +1,74 @@
+// ====================================== ·
+// OBJECTS - FLAG
+// ====================================== ·
+
+.o-flag {
+  display: table;
+  width: 100%;
+
+  // BASIC ELEMENTS
+  @include t-bem-element( img , body ) {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  @include t-bem-element( img ) {
+    width: 1px;
+    padding-right: $s-space;
+    padding-bottom: 3px;
+    > img {
+      max-width: none;
+    }
+  }
+  @include t-bem-element( body ) {
+    width: auto;
+    &,
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // REVERSE
+  @include t-bem-modifier( reverse ) {
+    direction: rtl;
+    > .o-flag__img,
+    > .o-flag__body {
+      direction: ltr;
+    }
+  }
+  &.o-flag--reverse ,
+  body.rtl & {
+    > .o-flag__img {
+      padding-right: 0;
+      padding-left: $s-space;
+    }
+  }
+
+  // GUTTERS SIZE'S
+  @each $key , $gutter-size in $o-map-space {
+    @include t-bem-modifier( $key ) {
+      > .o-flag__img {
+        padding-right: $gutter-size;
+      }
+      &.o-flag--reverse ,
+      body.rtl & {
+        > .o-flag__img {
+          padding-right: 0;
+          padding-left: $gutter-size;
+        }
+      }
+    }
+  }
+
+  // VERTICAL ALIGNMENT
+  @each $position in $s-map-positions-values--vertical{
+    @include t-bem-modifier( $position ) {
+      > .o-flag__img {
+        padding-bottom: 0;
+      }
+      > .o-flag__img,
+      > .o-flag__body {
+        vertical-align: $position;
+      }
+    }
+  }
+}

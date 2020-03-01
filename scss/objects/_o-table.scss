@@ -1,0 +1,30 @@
+// ====================================== ·
+// OBJECTS - TABLE
+// ====================================== ·
+
+.o-table {
+  width: 100%;
+
+  // BASIC ELEMENTS
+  th,
+  td,
+  .o-table__col {
+    padding: map-get( $o-map-space , small );
+  }
+
+  // FORMATOS POR BREACKPOINT
+  @each $bp-key, $bp-value in $s-map-breakpoints {
+    @if $bp-value == 0 {
+      @include o-table;
+    } @else {
+      @include t-mq-min( $bp-value ) {
+        @include o-table( \@#{$bp-key} );
+      }
+    }
+  }
+
+  // MODIFIERS
+  @include t-bem-modifier( fixed ) {
+    table-layout: fixed;
+  }
+}

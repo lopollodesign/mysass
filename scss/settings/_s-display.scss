@@ -1,0 +1,124 @@
+// ====================================== ·
+// SETTINGS - DISPLAY - INDEX
+// ====================================== ·
+
+$s-core-space:                20px !default;
+
+$s-space:                     round($s-core-space)    !default; // 20px default
+$s-space-tiny:                round($s-space * 0.25)  !default; // 5px  default
+$s-space-small:               round($s-space * 0.5)   !default; // 10px default
+$s-space-large:               round($s-space * 2)     !default; // 40px default
+$s-space-huge:                round($s-space * 4)     !default; // 80px default
+
+$s-map-space: (
+  "none":                     0,
+  "tiny":                     $s-space-tiny,    // 5px  default
+  "small":                    $s-space-small,   // 10px default
+  "medium":                   $s-space,         // 20px default
+  "large":                    $s-space-large,   // 40px default
+  "huge":                     $s-space-huge,    // 80px default
+) !default;
+
+// BORDER RADIUS
+// ========================== ·
+$s-core-border-radius:        4px !default;
+
+$s-border-radius:             round($s-core-border-radius)  !default; // 4px default
+$s-border-radius-small:       round($s-border-radius * 0.5) !default; // 2px default
+
+// BREAKPOINTS
+// ========================== ·
+$s-bp-mobile--xs:             600px !default;
+$s-bp-mobile:                 768px !default;
+$s-bp-tablet:                 992px !default;
+$s-bp-desktop:                1200px !default;
+$s-bp-desktop--lg:            1500px !default;
+
+$s-map-breakpoints--mobile: (
+  xs:                         $s-bp-mobile--xs,
+  sm:                         $s-bp-mobile,
+) !default;
+
+$s-map-breakpoints: (
+  xx:                         0,
+  xs:                         $s-bp-mobile--xs,
+  sm:                         $s-bp-mobile,
+  md:                         $s-bp-tablet,
+  lg:                         $s-bp-desktop,
+  xl:                         $s-bp-desktop--lg
+) !default;
+
+// VALUES
+// ========================== ·
+$s-map-display-values:
+  none ,
+  inline ,
+  inline-block ,
+  block ,
+  table ,
+  table-row ,
+  table-cell ,
+  flex ,
+  inline-flex
+!default;
+
+$s-map-positions-values: (
+  top ,
+  bottom ,
+  left ,
+  right
+) !default;
+
+$s-map-positions-values--vertical: (
+  top ,
+  bottom ,
+) !default;
+
+$s-map-positions-values--horizontal:
+  right ,
+  center,
+  left
+!default;
+
+// Flex
+// ============= ·
+$s-map-justify-content-values: (
+        'stretch':      stretch,
+        'between':      space-between,
+        'around':       space-around,
+        'end':          flex-end,
+        'center':       center,
+        'start':        flex-start,
+        'initial':      initial,
+) !default;
+
+$s-map-align-items-values: (
+        'initial':      initial,
+        'center':       center,
+        'end':          flex-end,
+        'start':        flex-start,
+        'stretch':      stretch,
+) !default;
+
+$s-map-flex-wrap-values: (
+        nowrap,
+        wrap,
+) !default;
+
+$s-map-flex-direction-values: (
+        column-reverse,
+        column,
+        row-reverse,
+        row,
+) !default;
+
+$s-map-flex-values: (
+        '1 1',
+        '1 2',
+        '1 3',
+        '1 4',
+        '2 1',
+        '3 1',
+        '4 1',
+) !default;
+

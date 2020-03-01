@@ -1,0 +1,24 @@
+// ====================================== ·
+// OBJECTS - SECTION
+// ====================================== ·
+
+.o-section {
+  @each $key, $padding in $o-map-space {
+    @include t-bem-modifier( $key ) {
+      @each $position in $s-map-positions-values--vertical {
+        padding-#{$position}: $padding;
+      }
+    }
+
+    // SIZE'S
+    @each $bp-key, $bp-value in $s-map-breakpoints {
+      @include t-mq-min( $bp-value ) {
+        @include t-bem-modifier( #{$key}\@#{$bp-key} ){
+          @each $position in $s-map-positions-values--vertical {
+            padding-#{$position}: $padding;
+          }
+        }
+      }
+    }
+  }
+}

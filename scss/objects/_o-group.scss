@@ -1,0 +1,30 @@
+// ================================ ·
+// OBJECTS - GROUP
+// ================================ ·
+
+.o-group {
+  & > *:not(:last-child){
+    margin-right: 3px;
+  }
+  // Esta clase no se añade a la anterior
+  // Se usara una u otra dependiendo del lado al que vaya
+  @include t-bem-modifier( reverse-margin ) {
+    & > *:not(:first-child){
+      margin-left: 3px;
+    }
+  }
+
+  // SIZE´S
+  @each $key, $margin-items in map-remove( $o-map-space , 'tiny' , 'none' ) {
+    @include t-bem-modifier( $key ) {
+      & > *:not(:last-child){
+        margin-right: $margin-items;
+      }
+    }
+    @include t-bem-modifier( #{$key}--reverse-margin ) {
+      & > *:not(:first-child){
+        margin-left: $margin-items;
+      }
+    }
+  }
+}

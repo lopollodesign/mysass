@@ -1,56 +1,52 @@
 // ====================================== ·
-//
-// !!!! POR REVISAR !!!!
-// --vç
-//
-// OBJECTS - MEDDIA
+// OBJECTS - MEDDIA (Pendiente de revision)
 // ====================================== ·
 
 .o-meddia {
-  @include flexible-container( row , nowrap , flex-start , null );
+  @include t-flexible-container( row , nowrap , flex-start , null );
   i.o-meddia__picture {
     margin-top: 2px;
     text-align: center;
   }
-  @include bem-element( picture ){
+  @include t-bem-element( picture ){
     max-width: map_get( map_get($o-meddia-sizes, sm) , img-size );
     min-width: map_get( map_get($o-meddia-sizes, sm) , img-size );
     width: map_get( map_get($o-meddia-sizes, sm) , img-size );
     margin-right: map_get( map_get($o-meddia-sizes, sm) , gap );
-    @include rtl {
+    @include t-rtl {
       margin-right: 0;
       margin-left: map_get( map_get($o-meddia-sizes, sm) , gap );
     }
     img {
-      border-radius: $border-radius--xs;
+      border-radius: $s-border-radius-small;
       max-width: 100%;
     }
   }
-  @include bem-modifier( md ) {
+  @include t-bem-modifier( md ) {
     .o-meddia__picture {
       margin-right: map_get( map_get($o-meddia-sizes, md) , gap );
       max-width: map_get( map_get($o-meddia-sizes, md) , img-size );
       min-width: map_get( map_get($o-meddia-sizes, md) , img-size );
       width: map_get( map_get($o-meddia-sizes, md) , img-size );
-      @include rtl {
+      @include t-rtl {
         margin-right: 0;
         margin-left: map_get( map_get($o-meddia-sizes, md) , gap );
       }
     }
   }
-  @include bem-modifier( lg ) {
+  @include t-bem-modifier( lg ) {
     .o-meddia__picture {
       margin-right: map_get( map_get($o-meddia-sizes, lg) , gap );
       max-width: map_get( map_get($o-meddia-sizes, lg) , img-size );
       min-width: map_get( map_get($o-meddia-sizes, lg) , img-size );
       width: map_get( map_get($o-meddia-sizes, lg) , img-size );
-      @include rtl {
+      @include t-rtl {
         margin-right: 0;
         margin-left: map_get( map_get($o-meddia-sizes, lg) , gap );
       }
     }
   }
-  @include bem-modifier( auto ) {
+  @include t-bem-modifier( auto ) {
     .o-meddia__picture {
       max-width: initial;
       min-width: initial;
