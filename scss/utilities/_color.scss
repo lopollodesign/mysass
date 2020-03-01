@@ -1,0 +1,11 @@
+// ====================================== ·
+// UTILITIES - COLOR
+// ====================================== ·
+
+.u-color {
+    @each $color-name, $color-value in $s-map-font-color {
+        @include t-bem-modifier($color-name) {
+            color: $color-value;
+        }
+    }
+}

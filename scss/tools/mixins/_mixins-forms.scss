@@ -92,38 +92,3 @@
     @error 'la direccion de t-position-middle tiene que ser horizontal o vertical'
   }
 }
-
-// IMG COVER
-// Sirve para poner una imagen con el efecto del bg cover pero con la imagen en el HTML
-// ====================
-@mixin t-img-cover( $h ) {
-  @include t-rectangle(100%);
-  object-fit: cover;
-  object-position: center;
-  max-height: $h;
-}
-
-// IMG OVERLAYING
-// Pone una capa algo oscura pero transparente sobre las imagenes que tienen contenido encima
-// Conseguimos separar para que la imagen no afecte al texto
-// ====================
-%bg-overlaying {
-  background-color: $s-image__overlaying-bg;
-}
-
-%bg-overlaying--soft {
-  background-color: $s-image__overlaying-bg--soft;
-}
-
-@mixin t-after-overlaying( $position: relative , $intensity: null, $z-index: 0) {
-  position: $position;
-  &::after {
-    @if $intensity == 'soft' {
-      @extend %bg-overlaying--soft;
-    } @else {
-      @extend %bg-overlaying;
-    }
-    @include t-position($z-index, 0, 0, 0, 0, null, null);
-    @content;
-  }
-}

@@ -1,0 +1,11 @@
+// ====================================== ·
+// UTILITIES - FONT SIZE
+// ====================================== ·
+
+.u-font-size {
+    @each $font-name, $font-value in $s-map-font-sizes {
+        @include t-bem-modifier($font-name) {
+            font-size: $font-value;
+        }
+    }
+}

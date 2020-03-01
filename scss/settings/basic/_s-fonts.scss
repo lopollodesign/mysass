@@ -1,0 +1,29 @@
+// ====================================== ·
+// SETTINGS - FONTS
+// ====================================== ·
+
+// FONT FAMILY
+// ==================
+$s-core-font-family:          'Roboto' !default;
+
+$s-font-family-general:       $s-core-font-family !default;
+$s-font-family-condensed:     'Roboto Condensed'    !default;
+
+// FONT SIZE
+// ==================
+$s-core-font-size:          14px !default;
+
+$s-font-size:               $s-core-font-size  !default;   // font-size: 16 * .875px;
+$s-font-size-small:         12px               !default;  // Cambiar por: font-size: 16 * .75px; y font-size: 16 * .675px;
+$s-font-size-middle:        16px               !default;  // Cambiar por: font-size: 16 * 1px;
+$s-font-size-big:           20px               !default;  // Cambiar por: font-size: 16 * 1.25px;
+$s-font-size-jumbo:         36px               !default;
+
+$s-map-font-sizes: (
+  default:                  $s-font-size,
+  small:                    $s-font-size-small,
+  middle:                   $s-font-size-middle,
+  big:                      $s-font-size-big,
+  jumbo:                    $s-font-size-jumbo,
+) !default;
+

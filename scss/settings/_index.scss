@@ -2,34 +2,10 @@
 // SETTINGS - INDEX
 // ====================================== ·
 
-// settings functions
-// ======================= ·
-@import "s-functions";
+@import "basic/index";
 
-// Combinaciones de variables de colores para los mixins
-// ======================= ·
-@import "s-colors";
+@import "s-elements";
 
-// Todas las fuentes
-// ======================= ·
-@import "s-fonts";
-
-// Espacios  y tamaños genéricos
-// ======================= ·
-@import "s-display";
-
-// Estilos genéricos
-// ======================= ·
-@import "s-style";
-
-// Tiempos
-// ======================= ·
-@import "s-animations";
-
-// components settings
-// ======================= ·
 @import "objects/index";
 
-// components settings
-// ======================= ·
 @import "components/index";

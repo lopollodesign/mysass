@@ -4,30 +4,28 @@
 
 $s-core-space:                20px !default;
 
-$s-space:                     round($s-core-space)    !default; // 20px default
-$s-space-tiny:                round($s-space * 0.25)  !default; // 5px  default
-$s-space-small:               round($s-space * 0.5)   !default; // 10px default
-$s-space-large:               round($s-space * 2)     !default; // 40px default
-$s-space-huge:                round($s-space * 4)     !default; // 80px default
+$s-space:                     20px    !default;
+$s-space-tiny:                5px     !default;
+$s-space-small:               10px    !default;
+$s-space-large:               40px    !default;
+$s-space-huge:                80px    !default;
 
 $s-map-space: (
   "none":                     0,
-  "tiny":                     $s-space-tiny,    // 5px  default
-  "small":                    $s-space-small,   // 10px default
-  "medium":                   $s-space,         // 20px default
-  "large":                    $s-space-large,   // 40px default
-  "huge":                     $s-space-huge,    // 80px default
+  "tiny":                     $s-space-tiny,
+  "small":                    $s-space-small,
+  "medium":                   $s-space,
+  "large":                    $s-space-large,
+  "huge":                     $s-space-huge,
 ) !default;
 
-// BORDER RADIUS
-// ========================== ·
+// Border radius
 $s-core-border-radius:        4px !default;
 
-$s-border-radius:             round($s-core-border-radius)  !default; // 4px default
-$s-border-radius-small:       round($s-border-radius * 0.5) !default; // 2px default
+$s-border-radius:             round($s-core-border-radius)  !default;
+$s-border-radius-small:       round($s-border-radius * 0.5) !default;
 
-// BREAKPOINTS
-// ========================== ·
+// Breakpoints
 $s-bp-mobile--xs:             600px !default;
 $s-bp-mobile:                 768px !default;
 $s-bp-tablet:                 992px !default;
@@ -48,8 +46,7 @@ $s-map-breakpoints: (
   xl:                         $s-bp-desktop--lg
 ) !default;
 
-// VALUES
-// ========================== ·
+// Values
 $s-map-display-values:
   none ,
   inline ,
@@ -81,7 +78,6 @@ $s-map-positions-values--horizontal:
 !default;
 
 // Flex
-// ============= ·
 $s-map-justify-content-values: (
         'stretch':      stretch,
         'between':      space-between,
@@ -121,4 +117,3 @@ $s-map-flex-values: (
         '3 1',
         '4 1',
 ) !default;
-

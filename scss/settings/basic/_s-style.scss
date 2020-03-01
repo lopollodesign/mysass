@@ -1,0 +1,88 @@
+// ====================================== ·
+// SETTINGS - STYLES
+// Nuevos estilos genéricos
+// ====================================== ·
+
+// Tipografía
+$s-font-color-brand:                 $s-color-brand;
+$s-font-color-gray-lightest:         $s-color-gray-lightest;
+$s-font-color-gray-lighter:          $s-color-gray-lighter;
+$s-font-color-gray-light:            $s-color-gray-light;
+$s-font-color-gray-darkest:          $s-color-gray-darkest;
+$s-font-color-state-success:         $s-color-state-success;
+$s-font-color-state-warning:         $s-color-state-warning;
+$s-font-color-state-danger:          $s-color-state-danger;
+
+$s-map-font-color: (
+    brand:                           $s-font-color-brand,
+    gray-lightest:                   $s-font-color-gray-lightest,
+    gray-lighter:                    $s-font-color-gray-lighter,
+    gray-light:                      $s-font-color-gray-light,
+    gray-darkest:                    $s-font-color-gray-darkest,
+    state-success:                   $s-font-color-state-success,
+    state-warning:                   $s-font-color-state-warning,
+    state-danger:                    $s-font-color-state-danger,
+);
+
+// Background
+$s-bg-color-brand:                   $s-color-brand;
+$s-bg-color-gray-lightest:           $s-color-gray-lightest;
+$s-bg-color-gray-lighter:            $s-color-gray-lighter;
+$s-bg-color-gray-light:              $s-color-gray-light;
+$s-bg-color-gray-darkest:            $s-color-gray-darkest;
+$s-bg-color-state-success:           $s-color-state-success;
+$s-bg-color-state-warning:           $s-color-state-warning;
+$s-bg-color-state-danger:            $s-color-state-danger;
+
+$s-map-bg-color: (
+    brand:                           $s-bg-color-brand,
+    gray-lightest:                   $s-bg-color-gray-lightest,
+    gray-lighter:                    $s-bg-color-gray-lighter,
+    gray-light:                      $s-bg-color-gray-light,
+    gray-darkest:                    $s-bg-color-gray-darkest,
+    state-success:                   $s-bg-color-state-success,
+    state-warning:                   $s-bg-color-state-warning,
+    state-danger:                    $s-bg-color-state-danger,
+);
+
+// Border color
+$s-border-color-brand:               $s-color-brand;
+$s-border-color-gray-lightest:       $s-color-gray-lightest;
+$s-border-color-gray-lighter:        $s-color-gray-lighter;
+$s-border-color-gray-light:          $s-color-gray-light;
+$s-border-color-gray-darkest:        $s-color-gray-darkest;
+$s-border-color-state-success:       $s-color-state-success;
+$s-border-color-state-warning:       $s-color-state-warning;
+$s-border-color-state-danger:        $s-color-state-danger;
+
+$s-map-border-color: (
+    brand:                           $s-border-color-brand,
+    gray-lightest:                   $s-border-color-gray-lightest,
+    gray-lighter:                    $s-border-color-gray-lighter,
+    gray-light:                      $s-border-color-gray-light,
+    gray-darkest:                    $s-border-color-gray-darkest,
+    state-success:                   $s-border-color-state-success,
+    state-warning:                   $s-border-color-state-warning,
+    state-danger:                    $s-border-color-state-danger,
+);
+
+// Border style
+$s-border-brand:                     1px solid $s-border-color-brand;
+$s-border-gray-lightest:             1px solid $s-border-color-gray-lightest;
+$s-border-gray-lighter:              1px solid $s-border-color-gray-lighter;
+$s-border-gray-light:                1px solid $s-border-color-gray-light;
+$s-border-gray-darkest:              1px solid $s-border-color-gray-darkest;
+$s-border-state-success:             1px solid $s-border-color-state-success;
+$s-border-state-warning:             1px solid $s-border-color-state-warning;
+$s-border-state-danger:              1px solid $s-border-color-state-danger;
+
+$s-map-border: (
+    brand:                           $s-border-brand,
+    gray-lightest:                   $s-border-gray-lightest,
+    gray-lighter:                    $s-border-gray-lighter,
+    gray-light:                      $s-border-gray-light,
+    gray-darkest:                    $s-border-gray-darkest,
+    state-success:                   $s-border-state-success,
+    state-warning:                   $s-border-state-warning,
+    state-danger:                    $s-border-state-danger,
+);

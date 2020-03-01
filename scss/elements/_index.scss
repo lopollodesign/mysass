@@ -1,4 +1,9 @@
 // ================================ ·
-// Cambios en los botones genéricos
-// Esta Capa sera la ultima en llenarse a medida que se vacie el antiguo CSS
+// ELEMENTS - INDEX
 // ================================ ·
+
+body {
+    font: $s-body-font-size/$s-body-line-height $s-body-font-family;
+    background-color: $s-body-bg-color;
+    color: $s-body-font-color;
+}

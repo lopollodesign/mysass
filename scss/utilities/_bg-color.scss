@@ -1,0 +1,14 @@
+// ====================================== ·
+// UTILITIES - BACKGROUND COLOR
+// ====================================== ·
+
+.u-bg-color {
+    @each $color-name, $color-value in $s-map-bg-color {
+        @include t-bem-modifier($color-name) {
+            background-color: $color-value;
+            @if not lightness-boolean($color-value) {
+                color: white;
+            }
+        }
+    }
+}

@@ -14,12 +14,12 @@ $ui-date-picker-width-calendar:                                95% !default;
 //.------ background
 
 $ui-date-picker-background:                                          white !default;
-$ui-date-picker-background-header:                       $s-bg-clr--darker !default;
+$ui-date-picker-background-header:                       $s-bg-color--darker !default;
 $ui-date-picker-background-weekend-column:                           white !default;
 $ui-date-picker-background-calendar-days:                      transparent !default;
 $ui-date-picker-background-other-month:                        transparent !default;
-$ui-date-picker-background-calendar-days-hover:         $s-bg-clr--darkest !default;
-$ui-date-picker-background-calendar-days-active:          $s-bg-clr--brand !default;
+$ui-date-picker-background-calendar-days-hover:         $s-bg-color--darkest !default;
+$ui-date-picker-background-calendar-days-active:          $s-bg-color--brand !default;
 $ui-date-picker-background-range-days:               $s-color-gray-lighter !default;
 
 //.------ Font-color
@@ -48,6 +48,6 @@ $ui-date-picker-space-width-group:                             1px !default;
 //.------ border: calendar days
 
 $ui-date-picker-border-radius-calendar-days:                       2px !default;
-$ui-date-picker-border-color-calendar-days:        $s-bdr-clr--lighter !default;
-$ui-date-picker-border-calendar-days-hover:         $s-bg-clr--darkest !default;
-$ui-date-picker-border-calendar-days-active:          $s-bg-clr--brand !default;
+$ui-date-picker-border-color-calendar-days:        $s-border-color--lighter !default;
+$ui-date-picker-border-calendar-days-hover:         $s-bg-color--darkest !default;
+$ui-date-picker-border-calendar-days-active:          $s-bg-color--brand !default;

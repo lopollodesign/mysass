@@ -1,0 +1,13 @@
+// ================================ ·
+// FUNCTIONS - LIGHTNESS BOOLEAN
+// ================================ ·
+
+// Te retorna si un color es más oscuro que el porcentaje que le pidas
+// Ejemplos:
+// lightnessBoolean(#fff)       > return: true
+// lightnessBoolean(#000)       > return: false
+// lightnessBoolean(#aaa, 70)   > return: false
+@function lightness-boolean($color, $percentage: 80){
+  @return strip-unit(lightness($color)) > $percentage;
+}
+

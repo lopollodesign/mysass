@@ -1,0 +1,12 @@
+// ====================================== ·
+// UTILITIES - BORDER
+// ====================================== ·
+
+.u-border {
+    @each $border-name, $border-value in $s-map-border {
+        @include t-bem-modifier($border-name) {
+            border: $border-value;
+            color: map-get($s-map-font-color, $border-name);
+        }
+    }
+}
