@@ -7,3 +7,12 @@ body {
     background-color: $s-body-bg-color;
     color: $s-body-font-color;
 }
+
+@for $i from 1 through length($s-map-font-sizes) {
+    h#{$i} {
+        font-size: index($s-list-font-sizes-values, $i);
+        font-size: $s-list-font-sizes-values;
+        content: '#{$i}';
+    }
+}
+

@@ -25,5 +25,7 @@ $s-map-font-sizes: (
   middle:                   $s-font-size-middle,
   big:                      $s-font-size-big,
   jumbo:                    $s-font-size-jumbo,
-) !default;
+);
+
+$s-list-font-sizes-values: map-values($s-map-font-sizes);
 
