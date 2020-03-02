@@ -1,0 +1,15 @@
+// ====================================== ·
+// UTILITIES - MARGIN
+// ====================================== ·
+
+$u-map-margin-space: map-remove($s-map-space, "huge");
+.u-margin {
+    @each $space-name, $space-value in $u-map-margin-space {
+        @each $position-name, $position-value in $s-map-positions-values {
+            $letter: str-slice($position-name, 0,1);
+            @include t-bem-modifier(#{$letter}-#{$space-name}) {
+                margin-#{$position-name}: $space-value;
+            }   
+        }
+    }
+}

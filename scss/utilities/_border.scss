@@ -4,9 +4,12 @@
 
 .u-border {
     @each $border-name, $border-value in $s-map-border {
+        $color: map-get($s-map-border-color, $border-name);
         @include t-bem-modifier($border-name) {
             border: $border-value;
-            color: map-get($s-map-font-color, $border-name);
+            @if not lightness-boolean($color) {
+                color: map-get($s-map-font-color, $border-name);
+            }
         }
     }
 }

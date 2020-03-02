@@ -1,0 +1,11 @@
+// ====================================== ·
+// UTILITIES - TEXT ALIGN
+// ====================================== ·
+
+.u-text-align {
+    @each $value in $s-map-positions-values--horizontal {
+        @include t-bem-modifier($value) {
+            text-align: $value;
+        }
+    }
+}

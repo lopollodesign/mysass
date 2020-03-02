@@ -20,12 +20,11 @@ $s-font-size-big:           20px               !default;  // Cambiar por: font-s
 $s-font-size-jumbo:         36px               !default;
 
 $s-map-font-sizes: (
-  default:                  $s-font-size,
   small:                    $s-font-size-small,
+  default:                  $s-font-size,
   middle:                   $s-font-size-middle,
   big:                      $s-font-size-big,
   jumbo:                    $s-font-size-jumbo,
 );
 
 $s-list-font-sizes-values: map-values($s-map-font-sizes);
-
