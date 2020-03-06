@@ -2,17 +2,14 @@
 // SETTINGS - UI DATEPICKER
 // ====================================== ·
 
-//.------ Width: Datepicker
-
+// Width: Datepicker
 $ui-date-picker-width-single:                                300px !default;
 $ui-date-picker-width-double:                                600px !default;
 
-//.------ Width: Calendar
-
+// Width: Calendar
 $ui-date-picker-width-calendar:                                95% !default;
 
-//.------ background
-
+// background
 $ui-date-picker-background:                                          white !default;
 $ui-date-picker-background-header:                       $s-bg-color--darker !default;
 $ui-date-picker-background-weekend-column:                           white !default;
@@ -22,31 +19,26 @@ $ui-date-picker-background-calendar-days-hover:         $s-bg-color--darkest !de
 $ui-date-picker-background-calendar-days-active:          $s-bg-color--brand !default;
 $ui-date-picker-background-range-days:               $s-color-gray-lighter !default;
 
-//.------ Font-color
-
+// Font-color
 $ui-date-picker-font-color-days:              $s-color-gray-darker !default;
 $ui-date-picker-font-color-month:                            white !default;
 $ui-date-picker-font-color-year:                             white !default;
 
-//.------ Font-size
-
+// Font-size
 $ui-date-picker-font-size:                     $s-font-size-middle !default;
 $ui-date-picker-font-size-month:         $ui-date-picker-font-size !default;
 $ui-date-picker-font-size-year:          $ui-date-picker-font-size !default;
 $ui-date-picker-font-size-week-days:            $s-font-size-small !default;
 
-//.------ Icon: prev/next
-
+// Icon: prev/next
 $ui-date-picker-icon-prev:                                 "\f053" !default;
 $ui-date-picker-icon-next:                                 "\f054" !default;
 $ui-date-picker-icon-color:                                  white !default;
 
-//.------ Espacio medio entre los calendarios
-
+// Espacio medio entre los calendarios
 $ui-date-picker-space-width-group:                             1px !default;
 
-//.------ border: calendar days
-
+// border: calendar days
 $ui-date-picker-border-radius-calendar-days:                       2px !default;
 $ui-date-picker-border-color-calendar-days:        $s-border-color--lighter !default;
 $ui-date-picker-border-calendar-days-hover:         $s-bg-color--darkest !default;

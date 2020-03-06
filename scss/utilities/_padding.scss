@@ -1,0 +1,15 @@
+// ====================================== ·
+// UTILITIES - PADDING
+// ====================================== ·
+
+$u-map-padding-space: map-remove($s-map-space, "huge");
+.u-padding {
+    @each $space-name, $space-value in $u-map-padding-space {
+        @each $position-name, $position-value in $s-map-positions-values {
+            $letter: str-slice($position-name, 0,1);
+            @include t-bem-modifier(#{$letter}-#{$space-name}) {
+                padding-#{$position-name}: $space-value;
+            }   
+        }
+    }
+}

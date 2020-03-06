@@ -1,0 +1,22 @@
+// =================== ·
+// MOLECULAS - FRAME
+// =================== ·
+
+$s-frame-border-width: 50px;
+
+.c-frame {
+    border: red 0 solid;
+    border-width: 0 $s-frame-border-width;
+
+    @include t-flexible-container(column, $alignment : stretch , $justify-content : space-between);
+
+    @include t-bem-element(header,footer) {
+        height: $s-frame-border-width;
+        background-color: yellow;
+    }
+
+    @include t-bem-element(body) {
+        flex: 1 1 100%;
+        background-color: lightslategrey;
+    }
+}
