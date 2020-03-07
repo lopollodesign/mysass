@@ -14,43 +14,22 @@
 
 </head>
 
-<body>
-    <div class="main">
-
-        
-        <div class="c-modal c-frame">
-            <div class="c-frame__header o-flexbox o-flexbox--generic-row" style="align-items: center;">
-                <div>
-                    marca
-                </div>
-                <div class="o-group--large">
-                    <span>item</span>
-                    <span>item</span>
-                    <span>item</span>
-                </div>
-            </div>
-            <div class="c-frame__body o-flexbox o-flexbox--generic-row" style="justify-content: flex-start;">
-                <div style="background-color: aliceblue;width: 30%;">
-                    uno
-                </div>
-                <div class="u-margin--b-large" style="flex: 1 1;align-self: center;background-color: aqua; height: 500px;">
-                    dos
-                </div>
-            </div>
-            <div class="c-frame__footer o-flexbox o-flexbox--generic-row" style="align-items: center;">
-                <div class="o-group--large">
-                    <span>API</span>
-                    <span>operaciones</span>
-                </div>
-                <div class="o-group--large">
-                    <span>Ramon garcia</span>
-                    <span>Log out</span>
-                </div>
-            </div>
+<body class="c-frame o-flexbox o-flexbox--generic-column">
+    <header class="c-frame__header o-flexbox o-flexbox--generic-row u-align-items--center">
+        <div>
+            marca
         </div>
-
-        <div class="o-section--large">
+        <nav class="o-group--large">
+            <span>item</span>
+            <span>item</span>
+            <span>item</span>
+        </nav>
+    </header>
+    <main class="c-frame__body">
+        <section class="o-section--large">
             <div class="o-container">
+
+                <h1 class="u-color--brand">Paleta de utilities</h1>
 
                 <h1>
                     dd
@@ -72,7 +51,6 @@
                     dd
                 </h5>
 
-                <h1>Colores básicos</h1>
                 <div class="o-layout o-layout--stretch o-layout--gutter-small">
                     <div class="o-layout__item" style="width: 50%;">
                         <div class="o-block">
@@ -203,127 +181,135 @@
                 </div>
 
             </div>
-        </div>
-
-        <div class="o-section--large">
-            <div class="o-container">
-
-                <h1>Utilities de márgenes</h1>
-                <h4 class="u-color--gray-light">(u-margin--huge anulado)</h4>
-
-                <div class="o-layout o-layout--gutter-small u-margin--b-large">
-                    <div class="o-layout__item" style="width: 25%;">
-                        <div class="u-margin--t-none">
-                            u-margin--t-none
-                        </div>
-
-                        <div class="u-margin--t-tiny">
-                            u-margin--t-tiny
-                        </div>
-
-                        <div class="u-margin--t-small">
-                            u-margin--t-small
-                        </div>
-
-                        <div class="u-margin--t-medium">
-                            u-margin--t-medium
-                        </div>
-
-                        <div class="u-margin--t-large">
-                            u-margin--t-large
-                        </div>
-                    </div>
-
-                    <div class="o-layout__item" style="width: 25%;">
-                        <div class="u-margin--b-none">
-                            u-margin--b-none
-                        </div>
-
-                        <div class="u-margin--b-tiny">
-                            u-margin--b-tiny
-                        </div>
-
-                        <div class="u-margin--b-small">
-                            u-margin--b-small
-                        </div>
-
-                        <div class="u-margin--b-medium">
-                            u-margin--b-medium
-                        </div>
-
-                        <div class="u-margin--b-large">
-                            u-margin--b-large
-                        </div>
-                    </div>
-
-                    <div class="o-layout__item" style="width: 25%;">
-                        <div class="u-margin--l-none">
-                            u-margin--l-none
-                        </div>
-
-                        <div class="u-margin--l-tiny">
-                            u-margin--l-tiny
-                        </div>
-
-                        <div class="u-margin--l-small">
-                            u-margin--l-small
-                        </div>
-
-                        <div class="u-margin--l-medium">
-                            u-margin--l-medium
-                        </div>
-
-                        <div class="u-margin--l-large">
-                            u-margin--l-large
-                        </div>
-                    </div>
-
-                    <div class="o-layout__item" style="width: 24%; text-align: right;">
-                        <div class="u-margin--r-none">
-                            u-margin--r-none
-                        </div>
-
-                        <div class="u-margin--r-tiny">
-                            u-margin--r-tiny
-                        </div>
-
-                        <div class="u-margin--r-small">
-                            u-margin--r-small
-                        </div>
-
-                        <div class="u-margin--r-medium">
-                            u-margin--r-medium
-                        </div>
-
-                        <div class="u-margin--r-large">
-                            u-margin--r-large
-                        </div>
-                    </div>
-                </div>
-
-                <div class="o-layout o-layout--stretch o-layout--gutter-small">
-                    <div class="o-layout__item" style="width: 32%;">
-                        <div class="u-text-align--left" style="width: 100%;">
-                            u-text-align--left
-                        </div>
-                    </div>
-                    <div class="o-layout__item" style="width: 32%;">
-                        <div class="u-text-align--center" style="width: 100%;">
-                            u-text-align--center
-                        </div>
-                    </div>
-                    <div class="o-layout__item" style="width: 32%;">
-                        <div class="u-text-align--right" style="width: 100%;">
-                            u-text-align--right
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="o-section--large">
+                <div class="o-container">
+
+                    <h1>Utilities de márgenes</h1>
+                    <h4 class="u-color--gray-light">(u-margin--huge anulado)</h4>
+
+                    <div class="o-layout o-layout--gutter-small u-margin--b-large">
+                        <div class="o-layout__item" style="width: 25%;">
+                            <div class="u-margin--t-none">
+                                u-margin--t-none
+                            </div>
+
+                            <div class="u-margin--t-tiny">
+                                u-margin--t-tiny
+                            </div>
+
+                            <div class="u-margin--t-small">
+                                u-margin--t-small
+                            </div>
+
+                            <div class="u-margin--t-medium">
+                                u-margin--t-medium
+                            </div>
+
+                            <div class="u-margin--t-large">
+                                u-margin--t-large
+                            </div>
+                        </div>
+
+                        <div class="o-layout__item" style="width: 25%;">
+                            <div class="u-margin--b-none">
+                                u-margin--b-none
+                            </div>
+
+                            <div class="u-margin--b-tiny">
+                                u-margin--b-tiny
+                            </div>
+
+                            <div class="u-margin--b-small">
+                                u-margin--b-small
+                            </div>
+
+                            <div class="u-margin--b-medium">
+                                u-margin--b-medium
+                            </div>
+
+                            <div class="u-margin--b-large">
+                                u-margin--b-large
+                            </div>
+                        </div>
+
+                        <div class="o-layout__item" style="width: 25%;">
+                            <div class="u-margin--l-none">
+                                u-margin--l-none
+                            </div>
+
+                            <div class="u-margin--l-tiny">
+                                u-margin--l-tiny
+                            </div>
+
+                            <div class="u-margin--l-small">
+                                u-margin--l-small
+                            </div>
+
+                            <div class="u-margin--l-medium">
+                                u-margin--l-medium
+                            </div>
+
+                            <div class="u-margin--l-large">
+                                u-margin--l-large
+                            </div>
+                        </div>
+
+                        <div class="o-layout__item" style="width: 24%; text-align: right;">
+                            <div class="u-margin--r-none">
+                                u-margin--r-none
+                            </div>
+
+                            <div class="u-margin--r-tiny">
+                                u-margin--r-tiny
+                            </div>
+
+                            <div class="u-margin--r-small">
+                                u-margin--r-small
+                            </div>
+
+                            <div class="u-margin--r-medium">
+                                u-margin--r-medium
+                            </div>
+
+                            <div class="u-margin--r-large">
+                                u-margin--r-large
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="o-layout o-layout--stretch o-layout--gutter-small">
+                        <div class="o-layout__item" style="width: 32%;">
+                            <div class="u-text-align--left" style="width: 100%;">
+                                u-text-align--left
+                            </div>
+                        </div>
+                        <div class="o-layout__item" style="width: 32%;">
+                            <div class="u-text-align--center" style="width: 100%;">
+                                u-text-align--center
+                            </div>
+                        </div>
+                        <div class="o-layout__item" style="width: 32%;">
+                            <div class="u-text-align--right" style="width: 100%;">
+                                u-text-align--right
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+    </main>
+    <footer class="c-frame__footer o-flexbox o-flexbox--generic-row" style="align-items: center;">
+        <div class="o-group--large">
+            <span>API</span>
+            <span>operaciones</span>
         </div>
-
-
-    </div>
+        <div class="o-group--large">
+            <span>Ramon garcia</span>
+            <span>Log out</span>
+        </div>
+    </footer>
 </body>
 
 </html>

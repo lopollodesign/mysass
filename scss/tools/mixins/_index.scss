@@ -2,9 +2,6 @@
 // MIXINS - INDEX
 // ================================ ·
 
-// Mixins solo para utilities
-
-
 @import "mixins-browsers";
 @import "mixins-queries";
 @import "mixins-forms";
@@ -14,4 +11,5 @@
 
 @import "mixins-objects";
 
+@import "utilities/index";
 

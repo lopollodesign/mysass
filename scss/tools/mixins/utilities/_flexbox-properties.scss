@@ -1,0 +1,47 @@
+// ================================ ·
+// MIXINS - UTILITIES - FLEXBOX PROPERTIES
+// ================================ ·
+
+@mixin u-justify-content( $bp-key : null ) {
+    @each $key, $value in $s-map-justify-content-values {
+      @include t-bem-modifier( #{$key}#{$bp-key} ) {
+        @include t-justify-content( $value );
+      }
+    }
+  }
+  
+  @mixin u-align-items( $bp-key : null ) {
+    @each $key, $value in $s-map-align-items-values {
+      @include t-bem-modifier( #{$key}#{$bp-key} ) {
+        @include t-align-items( $value );
+      }
+    }
+  }
+  
+  @mixin u-flex( $bp-key : null ) {
+    @each $value in $s-map-flex-values {
+      // Elimino el espacio para que el valor me haga de nombre
+      $key: remove-whitespace($value);
+  
+      @include t-bem-modifier( #{$key}#{$bp-key} ) {
+        flex: #{$value};
+      }
+    }
+  }
+  
+  @mixin u-flex-direction( $bp-key : null ) {
+    @each $value in $s-map-flex-direction-values {
+      @include t-bem-modifier( #{$value}#{$bp-key} ) {
+        @include t-flex-direction( $value );
+      }
+    }
+  }
+  
+  @mixin u-flex-wrap( $bp-key : null ) {
+    @each $value in $s-map-flex-wrap-values {
+      @include t-bem-modifier( #{$value}#{$bp-key} ) {
+        @include t-flex-wrap( $value );
+      }
+    }
+  }
+  

@@ -20,3 +20,7 @@ $each-index: length($s-map-font-sizes);
     }
     $each-index: $each-index - 1;
 }
+
+img {
+    max-width: 100%;
+}

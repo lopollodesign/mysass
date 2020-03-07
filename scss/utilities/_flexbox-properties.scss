@@ -1,0 +1,42 @@
+// ====================================== ·
+// UTILITIES - FLEXBOX PROPERTIES
+// ====================================== ·
+
+@each $bp-key, $bp-value in $s-map-breakpoints {
+    @if $bp-value == 0 {
+      .u-flex {
+        @include u-flex;
+      }
+      .u-justify-content {
+        @include u-justify-content;
+      }
+      .u-align-items {
+        @include u-align-items;
+      }
+      .u-flex-direction {
+        @include u-flex-direction;
+      }
+      .u-flex-wrap {
+        @include u-flex-wrap;
+      }
+    } @else {
+      @include t-mq-min( $bp-value ) {
+        .u-flex {
+          @include u-flex( \@#{$bp-key} );
+        }
+        .u-justify-content{
+          @include u-justify-content( \@#{$bp-key} );
+        }
+        .u-align-items {
+          @include u-align-items( \@#{$bp-key} );
+        }
+        .u-flex-direction {
+          @include u-flex-direction( \@#{$bp-key} );
+        }
+        .u-flex-wrap {
+          @include u-flex-wrap( \@#{$bp-key} );
+        }
+      }
+    }
+  }
+  

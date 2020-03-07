@@ -3,6 +3,23 @@
 // =================== ·
 
 .c-modal {
-    @include t-position(2000, 0,0,0,0, $position: fixed);
-    background-color: white;
+    @include t-position(2000, 0,0,0,0, $display: null, $position: fixed);
+
+    @include t-bem-element(img-wrapper) {
+        height: 150px;
+    }
+
+
+    @include t-mq-min($s-bp-mobile) {
+        @include t-bem-element(img-wrapper) {
+            height: auto;
+            width: 500px;
+            align-self: stretch;
+        }
+    
+        @include t-bem-element(main) {
+            width: 100%;
+            max-width: 500px;
+        }
+    }
 }
