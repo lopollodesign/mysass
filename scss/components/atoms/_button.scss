@@ -1,0 +1,67 @@
+// =================== ·
+// ATOMOS - BUTTON
+// =================== ·
+
+.c-button {
+    @include t-display-inline-flex;
+    @include t-align-items;
+    @include t-transition;
+    cursor: pointer;
+    border-radius: $s-button-border-radius;
+    font-weight: bold;
+    text-transform: uppercase;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    touch-action: manipulation;
+    border: 1px solid transparent;
+    position: relative;
+    @extend .c-atom-size--middle;
+
+    span {
+        position: relative;
+        z-index: 2;
+    }
+
+    @include t-bem-modifier(primary) {
+        &::before {
+            @include t-transition;
+            @include t-position(1, 100%,0,0,0,);
+            background-color: #f4b80e;
+        }
+        @extend .u-bg-color--brand;
+        @include t-action-states {
+            color: white;
+            &::before {
+                top: 0;
+            }
+        }
+    }
+
+    @include t-bem-modifier(secondary) {
+        background-color: transparent !important;
+        @extend .u-border--brand;
+        @include t-action-states {
+            background-color: rgba($s-bg-color-brand, .1) !important;
+            color: #f4b80e;
+        }
+    }
+
+    @include t-bem-modifier(light-gray) {
+        @extend .u-bg-color--gray-light;
+        @include t-action-states {
+            color: white;
+            background-color: mix( #000000, $s-bg-color-gray-light, 15%);
+        }
+    }
+
+    @include t-bem-modifier(dark-gray) {
+        @extend .u-bg-color--gray-darkest;
+        @include t-action-states {
+            color: white;
+            background-color: mix( #000000, $s-bg-color-gray-darkest, 50%);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+// ====================================== ·
+// SETTINGS - ATOM SIZE
+// ====================================== ·
+
+$s-atom-size-small-height:  35px;
+$s-atom-size-middle-height: 40px;
+$s-atom-size-big-height:    50px;
+
+$s-map-atom-size-height: (
+    small:      $s-atom-size-small-height,
+    middle:     $s-atom-size-middle-height,
+    big:        $s-atom-size-big-height,
+);
+
+$s-atom-size-small-min-width:  90px;
+$s-atom-size-middle-min-width: 150px;
+$s-atom-size-big-min-width:    150px;
+
+$s-map-atom-size-min-width: (
+    small:      $s-atom-size-small-min-width,
+    middle:     $s-atom-size-middle-min-width,
+    big:        $s-atom-size-big-min-width,
+);
+
+$s-atom-size-small-font-size:  $s-font-size;
+$s-atom-size-middle-font-size: $s-font-size;
+$s-atom-size-big-font-size:    $s-font-size-middle;
+
+$s-map-atom-size-font-size: (
+    small:      $s-atom-size-small-font-size,
+    middle:     $s-atom-size-middle-font-size,
+    big:        $s-atom-size-big-font-size,
+);

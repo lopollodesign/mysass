@@ -8,6 +8,19 @@ body {
     color: $s-body-font-color;
 }
 
+a {
+    @include t-all-states{
+        color: inherit;
+        text-decoration: none;
+        outline: none;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+
 %h-margin-null {
     margin-top: 0;
 }
@@ -19,8 +32,4 @@ $each-index: length($s-map-font-sizes);
         @extend %h-margin-null;
     }
     $each-index: $each-index - 1;
-}
-
-img {
-    max-width: 100%;
 }

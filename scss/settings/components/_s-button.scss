@@ -1,0 +1,15 @@
+// ====================================== ·
+// SETTINGS - BUTTON
+// ====================================== ·
+
+$s-button-border-radius: $s-border-radius-small;
+
+$s-button-small-traking:  1px;
+$s-button-middle-traking: 3px;
+$s-button-big-traking:    5px;
+
+$s-map-button-traking: (
+    small:      $s-button-small-traking,
+    middle:     $s-button-middle-traking,
+    big:        $s-button-big-traking,
+);
